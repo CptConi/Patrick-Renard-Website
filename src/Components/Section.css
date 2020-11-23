@@ -1,7 +1,4 @@
-.macros {
-    display: flex;
-    flex-direction: row;
-}
+/*  GENERAL */
 
 .section-title {
     font-size: 68px;
@@ -9,20 +6,92 @@
 }
 
 .section-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 21px;
-    padding: 25px;
 }
 
-.section-container-left,
-.section-container-right {
+/* MACROS SECTION */
+.macros {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 200px;
+}
+
+.macros-container-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 50%;
+}
+
+.macros-container-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.macros-text {
+    text-align: justify;
+    width: 550px;
+}
+
+/* STUDIO PORTRATIS SECTION */
+.portraits {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 200px;
+}
+
+.portraits-container-text{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid gray;
     width: 50%;
 }
 
+.portraits-container-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 50%;
+}
 
+.portraits-text {
+    text-align: justify;
+    width: 550px;
+}
 
+/* AU CAFE DES GRAPHISTES SECTION */
+.graphistes {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 200px;
+}
 
+.graphistes-container-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.graphistes-container-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.graphistes-text {
+    text-align: justify;
+    width: 550px;
+}

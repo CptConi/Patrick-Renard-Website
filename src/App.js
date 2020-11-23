@@ -1,25 +1,21 @@
 import React from 'react';
-import Title from './Components/Text/Title';
+
 import Navbar from './Components/Navbar';
-import Section from './Components/Section';
-import sectionText from './content';
+
+import Accueil from './Components/Accueil'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
     return (
-        <div className="App">
-            <Navbar />
-            <Title />
-            {sectionText.map((section) => {
-                return (
-                    <Section
-                        classe={section.classe}
-                        title={section.title}
-                        description={section.description}
-                    />
-                );
-            })}
-        </div>
+        <Router>
+            <div className="App">
+                <Navbar />
+                <Route exact path='/accueil' component={Accueil}/>
+                
+                <footer className="footer"></footer>
+            </div>
+        </Router>
     );
 }
 
