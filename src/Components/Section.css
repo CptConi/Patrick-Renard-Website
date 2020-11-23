@@ -1,0 +1,28 @@
+.macros {
+    display: flex;
+    flex-direction: row;
+}
+
+.section-title {
+    font-size: 68px;
+    text-align: center;
+}
+
+.section-text {
+    font-size: 21px;
+    padding: 25px;
+}
+
+.section-container-left,
+.section-container-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid gray;
+    width: 50%;
+}
+
+
+
+

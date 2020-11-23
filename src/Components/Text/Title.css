@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+h1.main-title{
+    margin: 0;
+    padding: 50px 30px 20px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 108px;
+    color: #AAA;
+}
