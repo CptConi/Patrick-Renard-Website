@@ -1,6 +1,6 @@
 .about__container {
-    padding: 75px 75px 0px 75px;
-    min-height: calc(100vh - 75px);
+    padding: 75px 75px 75px 75px;
+    min-height: calc(100vh - 150px);
     background: #090909 url(../../Assets/about-picture.jpg);
     background-size: 375%;
     background-position: 15% 30%;
