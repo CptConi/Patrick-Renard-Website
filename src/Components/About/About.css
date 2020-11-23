@@ -2,8 +2,8 @@
     padding: 75px 75px 75px 75px;
     min-height: calc(100vh - 150px);
     background: url(../../Assets/about-picture.jpg);
-    background-size: 375%;
-    background-position: 15% 30%;
+    background-size: 225%;
+    background-position: 0% 30%;
 
     /* Mobile responsive good vals */
     /* background-size: 400%;
@@ -25,7 +25,7 @@
     margin-bottom: 65px;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
     /*Mobile responsive good vals */
     .about__container {
     background-size: 300%;
