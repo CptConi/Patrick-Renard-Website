@@ -1,0 +1,32 @@
+.about__container {
+    padding: 75px 75px 0px 75px;
+    min-height: calc(100vh - 75px);
+    background: #090909 url(../../Assets/about-picture.jpg);
+    background-size: 375%;
+    background-position: 15% 30%;
+    background-attachment: fixed;
+
+    /* Mobile responsive good vals */
+    /* background-size: 400%;
+    background-position: 15% 30%;
+    background-attachment: fixed; */
+}
+
+.about__title {
+    margin: 50px 0 100px;
+    font-size: 65px;
+    color: aliceblue;
+    width: 50%;
+}
+
+.about__text--container {
+    width: 50%;
+}
+.about__text {
+    color: #ccc;
+    margin-bottom: 65px;
+}
+
+.about__picture {
+    width: 800px;
+}
