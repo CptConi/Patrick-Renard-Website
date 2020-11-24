@@ -1,11 +1,22 @@
-import express from 'express';
-import bodyParser, { json } from 'body-parser';
+const express = require('express');
+const bodyParser = require('body-parser');
+const { json } = require('body-parser');
+const mongoose = require('mongoose');
+const path = require('path');
 
 // App
 const app = express();
 
 // Routes
 const filesRoutes = require('./Routes/filesRoutes');
+
+mongoose
+    .connect(
+        'mongodb+srv://So_Pekocko_Admin_Mongo:piGWDRfWwp3VONBq@sopekocko.nwyga.mongodb.net/<dbname>?retryWrites=true&w=majority',
+        { useNewUrlParser: true, useUnifiedTopology: true }
+    )
+    .then(() => console.log('Connexion à MongoDB réussie !'))
+    .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 // Set le HEADER pour qu'il accepte les requêtes Cross Origin (Et empêcher les bugs de CORS)
 app.use((req, res, next) => {
