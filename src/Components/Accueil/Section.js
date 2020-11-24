@@ -10,7 +10,7 @@ export default function Section(props) {
                 <p className={`${props.classe}-text section-text`}>{props.description}</p>
             </div>
             <div className={`${props.classe}-container-image`}>
-                <PerspectiveMiniature image={props.image} />
+                <PerspectiveMiniature image={props.image} urlLink={props.urlLink} />
             </div>
         </div>
     );

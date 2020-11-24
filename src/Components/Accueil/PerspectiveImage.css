@@ -1,5 +1,6 @@
 .section__tilt {
     transform: translateY(40px);
+    cursor: pointer;
 }
 
 .section__image {

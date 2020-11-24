@@ -15,6 +15,7 @@ export default function Accueil() {
                             title={section.title}
                             description={section.description}
                             image={section.image}
+                            urlLink={section.urlLink}
                         />
                     );
                 })}
