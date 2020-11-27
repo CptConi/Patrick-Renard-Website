@@ -6,12 +6,17 @@ const MIME_TYPES = {
   "image/png": "png",
 };
 
+// Multer requiert un objet storage
 const storage = multer.diskStorage({
+  // On gère sa destination
   destination: (req, file, callback) => {
-    callback(null, "images");
+    let folder = JSON.parse(req.body.picture).categorie;
+    callback(null, `images/${folder}`);
   },
+  // Puis son nom
   filename: (req, file, callback) => {
-    const name = file.originalname.split(" ").join("_");
+    let parsedReq = JSON.parse(req.body.picture);
+    const name = parsedReq.name.split(' ').join('_');
     const extension = MIME_TYPES[file.mimetype];
     callback(null, name + Date.now() + "." + extension);
   },

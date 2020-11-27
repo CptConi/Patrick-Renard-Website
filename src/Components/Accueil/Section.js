@@ -14,4 +14,4 @@ export default function Section(props) {
             </div>
         </div>
     );
-}
+};

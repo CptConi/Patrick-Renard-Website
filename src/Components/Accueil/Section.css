@@ -19,10 +19,10 @@
     margin-bottom: 200px;
 }
 
-.macros-container-text{
+.macros-container-text {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     width: 50%;
 }
@@ -47,7 +47,7 @@
     margin-bottom: 200px;
 }
 
-.portraits-container-text{
+.portraits-container-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,7 +75,7 @@
     margin-bottom: 200px;
 }
 
-.graphistes-container-text{
+.graphistes-container-text {
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -12,6 +12,9 @@ export default function Navbar() {
                 <li>
                     <Link to="/apropos" className="home">À Propos</Link>
                 </li>
+                <li>
+                    <Link to="/test" className="home">Server Test</Link>
+                </li>
             </ul>
         
             <ul>

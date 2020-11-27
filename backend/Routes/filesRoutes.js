@@ -11,7 +11,7 @@ const filesController = require('../Controllers/filesController');
 router.get('/', filesController.getAllPictures);
 router.get('/:id', filesController.getOnePicture);
 
-router.post('/', auth, multer, filesController.newPicture);
+router.post('/',multer,  filesController.newPicture);
 
 router.put('/:id', auth, multer, filesController.modifyPicture);
 
