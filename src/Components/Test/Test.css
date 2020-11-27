@@ -14,10 +14,30 @@
 }
 
 .test__bloc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 80%;
+
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.test__images-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.test__images-container img{
+    padding: 10px 10px;
 }
 
 h3 {
@@ -25,6 +45,7 @@ h3 {
 }
 
 button {
+    margin: auto;
     width: 100px;
     height: 60px;
     border: none;
@@ -35,37 +56,37 @@ button {
     cursor: pointer;
 }
 
-input{
+input {
     width: 275px;
-    height:25px;
+    height: 25px;
     border-radius: 7px;
     outline: none;
     border: 1px solid gray;
     margin-bottom: 10px;
 }
 
-input[type='file']{
+input[type='file'] {
     width: 275px;
-    height:25px;
+    height: 25px;
     border-radius: 7px;
     border: none;
     margin-bottom: 10px;
     cursor: pointer;
 }
 
-input[type='radio']{
+input[type='radio'] {
     width: 50px;
     height: 1rem;
     cursor: pointer;
 }
 
-.test__categorie{
+.test__categorie {
     border: 1px dashed rgba(0, 0, 0, 0.1);
     border-radius: 7px;
     padding-bottom: 10px;
     margin: 10px;
 }
-.test__categorie label{
+.test__categorie label {
     padding-right: 20px;
     cursor: pointer;
 }

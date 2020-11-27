@@ -17,11 +17,11 @@ exports.getOnePicture = (req, res, next) => {
 
 exports.newPicture = (req, res, next) => {
   let pictureRequest = JSON.parse(req.body.picture);
-    console.log(`Requete post recu avec ${JSON.parse(req.body.picture)}`);
-    const protocol = req.protocol;
-    const host = req.get('host');
-    const folder = `images/${pictureRequest.categorie}`;
-    const filename = req.file.path.split('\\')[2];
+  const protocol = req.protocol;
+  const host = req.get('host');
+  const folder = `images/${pictureRequest.categorie}`;
+  const filename = req.file.path.split('\\')[2];
+  console.log(`Requete post recu pour la photo ${filename}`);
     const picture = new Picture({
         name: pictureRequest.name,
         description: pictureRequest.description,
@@ -29,7 +29,7 @@ exports.newPicture = (req, res, next) => {
     });
     picture
         .save()
-        .then(() => res.status(201).json(req.file))
+        .then(() => res.status(201).json({message: 'Photo sauvegardée avec succès !'}))
         .catch((error) => res.status(400).json({ error }));
 };
 

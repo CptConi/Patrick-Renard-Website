@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Miniature from '../Miniature';
 import http from '../../http-common';
 import './Test.css';
 
@@ -6,35 +7,20 @@ export default function Test() {
     const inputFileRef = useRef();
 
     const [prevImage, setPrevImage] = useState(null);
-    const [getReq, setGetReq] = useState(0);
+    const [getAllResponse, setGetAllResponse] = useState();
 
     const [file, setFile] = useState({
         name: '',
         description: '',
         file: '',
-        categorie: '',
+        categorie: 'macros',
     });
 
-    const changeGetId = (e) => {
-        setGetReq(e.target.value);
-    };
-
-    const getOne = () => {
-        console.log('Get One func executed');
-        http.get('/files/' + getReq)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
     const getAll = () => {
-        console.log('Get All func executed');
         http.get('/files')
             .then((response) => {
-                console.log(response);
+                setGetAllResponse(response.data);
+                console.log(getAllResponse);
             })
             .catch((err) => {
                 console.log(err);
@@ -61,7 +47,6 @@ export default function Test() {
             ...file,
             file: inputFileRef.current.files[0],
         });
-        console.log(inputFileRef.current.files[0]);
     };
 
     const postChangeCategory = (e) => {
@@ -98,9 +83,13 @@ export default function Test() {
 
             <div className='test__bloc'>
                 <h3>Test GET:</h3>
-                <input type='text' placeholder='picture ID to request' onChange={changeGetId} />
-                <button onClick={getOne}>GET ONE</button>
                 <button onClick={getAll}>GET ALL</button>
+                <div className='test__images-container'>
+                    {getAllResponse &&
+                        getAllResponse.map((data) => {
+                            return <Miniature image={data.imageUrl} width='500' />;
+                        })}
+                </div>
             </div>
             <div className='test__bloc col'>
                 <h3>Test POST:</h3>
