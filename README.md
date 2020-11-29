@@ -15,4 +15,6 @@ Vous pouvez utiliser le script `npm run start` pour lancer le serveur dev
 
 Back-end: API réalisée avec Node.js et Express, avec une utilisation de noSQL MongoDB pour stocker la data.
 
-<img align="center" src="./src/Assets/section-portraits.jpg" width=600>
+<p align="center">
+<img  src="./src/Assets/section-portraits.jpg" width=600>
+</p>
