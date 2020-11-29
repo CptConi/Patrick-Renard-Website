@@ -4,6 +4,11 @@ const { json } = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
+//environment variables
+require(‘dotenv’).config();
+
+
+
 const cors = require('cors');
 
 // App
@@ -12,9 +17,11 @@ const app = express();
 // Routes
 const filesRoutes = require('./Routes/filesRoutes');
 
+const uri = process.env.MONGO_URI
+
 mongoose
     .connect(
-        'mongodb+srv://So_Pekocko_Admin_Mongo:piGWDRfWwp3VONBq@sopekocko.nwyga.mongodb.net/Patrick_D_Andernos?retryWrites=true&w=majority',
+        uri,
         { useNewUrlParser: true, useUnifiedTopology: true }
     )
     .then(() => console.log('Connexion à MongoDB réussie !'))
