@@ -1,4 +1,5 @@
 const multer = require("multer");
+const util = require('util');
 
 const MIME_TYPES = {
   "image/jpg": "jpg",
@@ -11,7 +12,8 @@ const storage = multer.diskStorage({
   // On gère sa destination
   destination: (req, file, callback) => {
     let folder = JSON.parse(req.body.picture).categorie;
-    callback(null, `images/${folder}`);
+    let compressionLevel = JSON.parse(req.body.picture).size;
+    callback(null, `images/${folder}/${compressionLevel}`);
   },
   // Puis son nom
   filename: (req, file, callback) => {
@@ -22,4 +24,6 @@ const storage = multer.diskStorage({
   },
 });
 
-module.exports = multer({ storage: storage }).single("image");
+var uploadFiles = multer({ storage: storage }).array('multi-files', 3);
+var uploadFilesMiddleware = util.promisify(uploadFiles);
+module.exports = uploadFilesMiddleware;

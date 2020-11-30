@@ -7,8 +7,6 @@ const path = require('path');
 //environment variables
 require('dotenv').config();
 
-
-
 const cors = require('cors');
 
 // App
@@ -17,13 +15,10 @@ const app = express();
 // Routes
 const filesRoutes = require('./Routes/filesRoutes');
 
-const uri = process.env.MONGO_URI
+const uri = process.env.MONGO_URI;
 
 mongoose
-    .connect(
-        uri,
-        { useNewUrlParser: true, useUnifiedTopology: true }
-    )
+    .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 

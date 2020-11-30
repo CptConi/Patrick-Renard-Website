@@ -133,7 +133,7 @@ export default function Test() {
                     </div>
                 </div>
 
-                <input type='file' onChange={postChangeFile} ref={inputFileRef} />
+                <input type='file' onChange={postChangeFile} ref={inputFileRef} accept='image/*' />
                 <img src={prevImage} alt='' width='300' />
                 <button onClick={postPic}>POST Pic</button>
             </div>
