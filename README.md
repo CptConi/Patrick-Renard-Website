@@ -14,6 +14,7 @@ Vous pouvez utiliser le script `npm run start` pour lancer le serveur dev
 ## Back
 
 Back-end: API réalisée avec Node.js et Express, avec une utilisation de noSQL MongoDB pour stocker la data.
+Vous pouvez utiliser le script `node server.js` pour lancer le serveur back-end
 
 <p align="center">
 <img  src="./src/Assets/section-portraits.jpg" width=600>
