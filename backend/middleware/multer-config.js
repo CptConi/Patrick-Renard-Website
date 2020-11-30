@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
   // On gère sa destination
   destination: (req, file, callback) => {
     let folder = JSON.parse(req.body.picture).categorie;
-    let compressionLevel = JSON.parse(req.body.picture).size;
+    let compressionLevel = JSON.parse(req.body.picture).compressionLevel;
     callback(null, `images/${folder}/${compressionLevel}`);
   },
   // Puis son nom
@@ -24,6 +24,4 @@ const storage = multer.diskStorage({
   },
 });
 
-var uploadFiles = multer({ storage: storage }).array('multi-files', 3);
-var uploadFilesMiddleware = util.promisify(uploadFiles);
-module.exports = uploadFilesMiddleware;
+module.exports = multer({ storage: storage }).single("image");

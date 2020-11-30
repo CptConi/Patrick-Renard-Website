@@ -16,6 +16,37 @@ export default function Test() {
         categorie: 'macros',
     });
 
+    const sendPostRequest = (formData) => {
+        http.post('/files', formData)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const createFormData = (formData, image, compressionLevel) => {
+        /*
+         * compressionLevel peut prendre trois valeurs:
+         *  - full
+         *  - 1440
+         *  - 500
+         */
+
+        let picture = {
+            name: file.name,
+            description: file.description,
+            categorie: file.categorie,
+            compressionLevel: compressionLevel,
+        };
+
+        formData.append('picture', JSON.stringify(picture));
+        formData.append('image', image);
+
+        return formData;
+    };
+
     const getAll = () => {
         http.get('/files')
             .then((response) => {
@@ -58,22 +89,9 @@ export default function Test() {
 
     const postPic = () => {
         let formData = new FormData();
-        let picture = {
-            name: file.name,
-            description: file.description,
-            categorie: file.categorie,
-        };
+        formData = createFormData(formData, file.file, '1440');
 
-        formData.append('picture', JSON.stringify(picture));
-        formData.append('image', file.file);
-
-        http.post('/files', formData)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        sendPostRequest(formData);
     };
 
     return (
