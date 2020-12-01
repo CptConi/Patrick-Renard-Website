@@ -66,8 +66,20 @@ exports.modifyPicture = (req, res, next) => {
 exports.deletePicture = (req, res, next) => {
     Picture.findOne({ _id: req.params.id })
         .then((picture) => {
-            const filename = picture.imageUrl.split('/images/')[1];
-            fs.unlink(`images/${filename}`, () => {
+            // const filename = picture.imageUrl.split('/images/')[1];
+            const fileName = {
+                full: picture.fullSizePath.split('/images/')[1],
+                half: picture.midSizePath.split('/images/')[1],
+                miniature: picture.miniaturePath.split('/images/')[1],
+            };
+            fs.unlink(`images/${fileName.miniature}`, (err) => {
+                if (err) throw err;
+            });
+            fs.unlink(`images/${fileName.half}`, (err) => {
+                if (err) throw err;
+            });
+
+            fs.unlink(`images/${fileName.full}`, () => {
                 Picture.deleteOne({ _id: req.params.id })
                     .then(() => res.status(200).json({ message: 'Picture supprimée' }))
                     .catch((error) => res.status(400).json({ error }));

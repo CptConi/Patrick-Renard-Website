@@ -16,6 +16,6 @@ router.post('/compressed', multer, filesController.uploadCompressedPicture);
 
 router.put('/:id', auth, multer, filesController.modifyPicture);
 
-router.delete('/:id', auth, filesController.deletePicture);
+router.delete('/:id', /*auth,*/ filesController.deletePicture);
 
 module.exports = router;

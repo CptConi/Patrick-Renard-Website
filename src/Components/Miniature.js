@@ -1,9 +1,15 @@
 import React from 'react';
+import http from '../http-common';
+
 import './Miniature.css';
 
 export default function Miniature(props) {
     const deletePicture = () => {
-        console.log(`Supression de l'image id: ${props.id}`);
+        http.delete(`/files/${props.id}`)
+            .then(console.log(`Supression de l'image id: ${props.id}`))
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     return (
