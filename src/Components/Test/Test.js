@@ -98,7 +98,7 @@ export default function Test() {
         });
     };
 
-    async function compressAndUpload(maxWidthOrHeight) {
+    async function compressAndUpload(maxWidthOrHeight, compressionName) {
         const imageFile = file.file;
         // console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
         // console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
@@ -113,7 +113,7 @@ export default function Test() {
             // console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
             // console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
             let formData = new FormData();
-            formData = createFormData(formData, compressedFile, maxWidthOrHeight.toString());
+            formData = createFormData(formData, compressedFile, compressionName);
             uploadFileWithoutDBInfos(formData);
         } catch (error) {
             console.log(error);
@@ -121,13 +121,12 @@ export default function Test() {
     }
 
     const postPic = () => {
-        compressAndUpload(1440);
-        compressAndUpload(500);
+        compressAndUpload(1440, 'half');
+        compressAndUpload(500, 'miniature');
 
         let formData = new FormData();
         formData = createFormData(formData, file.file, 'full');
         uploadFileWithDBInfos(formData);
-        
     };
 
     return (
@@ -141,7 +140,7 @@ export default function Test() {
                 <div className='test__images-container'>
                     {getAllResponse &&
                         getAllResponse.map((data) => {
-                            return <Miniature image={data.imageUrl} width='500' />;
+                            return <Miniature image={data.miniaturePath} width='500' key={data._id} id={data._id} />;
                         })}
                 </div>
             </div>
@@ -157,7 +156,7 @@ export default function Test() {
                             type='radio'
                             id='macros'
                             name='categorie'
-                            value='macros'
+                            value='Macros'
                             defaultChecked
                             onChange={postChangeCategory}
                         />
@@ -169,7 +168,7 @@ export default function Test() {
                             type='radio'
                             id='portraits'
                             name='categorie'
-                            value='portraits'
+                            value='Portraits'
                             onChange={postChangeCategory}
                         />
                         <label htmlFor='portraits'>Studio Portraits</label>
@@ -180,7 +179,7 @@ export default function Test() {
                             type='radio'
                             id='graphistes'
                             name='categorie'
-                            value='graphistes'
+                            value='Graphistes'
                             onChange={postChangeCategory}
                         />
                         <label htmlFor='graphistes'>Au Café des Graphistes</label>

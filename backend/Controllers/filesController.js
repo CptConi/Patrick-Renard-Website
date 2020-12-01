@@ -8,7 +8,7 @@ exports.getAllPictures = (req, res, next) => {
         .catch((error) => res.status(404).json({ error }));
 };
 
-// Renvoie la picture avecl'ID fourni
+// Renvoie la picture avec l'ID fourni
 exports.getOnePicture = (req, res, next) => {
     Picture.findOne({ _id: req.params.id })
         .then((picture) => res.status(200).json(picture))
@@ -26,8 +26,8 @@ exports.newPicture = (req, res, next) => {
         name: pictureRequest.name,
         description: pictureRequest.description,
         fullSizePath: `${protocol}://${host}/${folder}/full/${filename}`,
-        midSizePath: `${protocol}://${host}/${folder}/1440/${filename}`,
-        miniaturePath: `${protocol}://${host}/${folder}/500/${filename}`,
+        midSizePath: `${protocol}://${host}/${folder}/half/${filename}`,
+        miniaturePath: `${protocol}://${host}/${folder}/miniature/${filename}`,
     });
     picture
         .save()
