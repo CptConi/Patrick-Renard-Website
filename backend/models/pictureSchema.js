@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const pictureSchema = mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String },
-  imageUrl: { type: String, required: true },
+  fullSizePath: { type: String, required: true },
+  midSizePath: { type: String, required: true },
+  miniaturePath: { type: String, required: true },
 });
 
 module.exports = mongoose.model('Picture', pictureSchema);

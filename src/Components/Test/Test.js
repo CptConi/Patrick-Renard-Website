@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Miniature from '../Miniature';
 import http from '../../http-common';
+import imageCompression from 'browser-image-compression';
 import './Test.css';
 
 export default function Test() {
@@ -16,8 +17,18 @@ export default function Test() {
         categorie: 'macros',
     });
 
-    const sendPostRequest = (formData) => {
+    const uploadFileWithDBInfos = (formData) => {
         http.post('/files', formData)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const uploadFileWithoutDBInfos = (formData) => {
+        http.post('/files/compressed', formData)
             .then((response) => {
                 console.log(response);
             })
@@ -87,11 +98,36 @@ export default function Test() {
         });
     };
 
-    const postPic = () => {
-        let formData = new FormData();
-        formData = createFormData(formData, file.file, '1440');
+    async function compressAndUpload(maxWidthOrHeight) {
+        const imageFile = file.file;
+        // console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
+        // console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
 
-        sendPostRequest(formData);
+        const options = {
+            maxSizeMB: 3,
+            maxWidthOrHeight: maxWidthOrHeight,
+            useWebWorker: true,
+        };
+        try {
+            const compressedFile = await imageCompression(imageFile, options);
+            // console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+            // console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+            let formData = new FormData();
+            formData = createFormData(formData, compressedFile, maxWidthOrHeight.toString());
+            uploadFileWithoutDBInfos(formData);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const postPic = () => {
+        compressAndUpload(1440);
+        compressAndUpload(500);
+
+        let formData = new FormData();
+        formData = createFormData(formData, file.file, 'full');
+        uploadFileWithDBInfos(formData);
+        
     };
 
     return (

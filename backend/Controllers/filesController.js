@@ -16,21 +16,27 @@ exports.getOnePicture = (req, res, next) => {
 };
 
 exports.newPicture = (req, res, next) => {
-  let pictureRequest = JSON.parse(req.body.picture);
-  const protocol = req.protocol;
-  const host = req.get('host');
-  const folder = `images/${pictureRequest.categorie}`;
-  const filename = req.file.path.split('\\')[2];
-  console.log(`Requete post recu pour la photo ${filename}`);
+    let pictureRequest = JSON.parse(req.body.picture);
+    const protocol = req.protocol;
+    const host = req.get('host');
+    const folder = `images/${pictureRequest.categorie}`;
+    const filename = req.file.path.split('\\')[3];
+    console.log(`Requete post recu pour la photo ${filename}`);
     const picture = new Picture({
         name: pictureRequest.name,
         description: pictureRequest.description,
-        imageUrl: `${protocol}://${host}/${folder}/${filename}`,
+        fullSizePath: `${protocol}://${host}/${folder}/full/${filename}`,
+        midSizePath: `${protocol}://${host}/${folder}/1440/${filename}`,
+        miniaturePath: `${protocol}://${host}/${folder}/500/${filename}`,
     });
     picture
         .save()
-        .then(() => res.status(201).json({message: 'Photo sauvegardée avec succès !'}))
+        .then(() => res.status(201).json({ message: 'Photo sauvegardée avec succès !' }))
         .catch((error) => res.status(400).json({ error }));
+};
+
+exports.uploadCompressedPicture = (req, res, next) => {
+    res.json('File uploaded successfully');
 };
 
 exports.modifyPicture = (req, res, next) => {

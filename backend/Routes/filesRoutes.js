@@ -11,7 +11,8 @@ const filesController = require('../Controllers/filesController');
 router.get('/', filesController.getAllPictures);
 router.get('/:id', filesController.getOnePicture);
 
-router.post('/',multer,  filesController.newPicture);
+router.post('/', multer, filesController.newPicture);
+router.post('/compressed', multer, filesController.uploadCompressedPicture);
 
 router.put('/:id', auth, multer, filesController.modifyPicture);
 
