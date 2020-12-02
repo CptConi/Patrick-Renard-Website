@@ -1,24 +1,28 @@
 import React from 'react';
-import http from '../http-common';
+import { deletePicture } from "./Services/PictureService";
 
 import './Miniature.css';
 
 export default function Miniature(props) {
-    const deletePicture = () => {
-        http.delete(`/files/${props.id}`)
-            .then(console.log(`Supression de l'image id: ${props.id}`))
-            .catch((err) => {
-                console.log(err);
-            });
-    };
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        props.handleClick(props.id);
+    }
+    
 
     return (
         <div className='miniature__container'>
             <img src={props.image} width={props.width} alt='' />
-            <button className='miniature__btn--delete' onClick={deletePicture}>
+            <a className='miniature__btn--delete' onClick={handleClick}>
                 &times;
-            </button>
-            <div className='miniature__bloc-btn'></div>
+            </a>
+            <div className='miniature__bloc-infos'>
+                <ul>
+                    <li>Titre: {props.imgTitle}</li>
+                    <li>Description: {props.imgDescription}</li>
+                </ul>
+            </div>
         </div>
     );
 }

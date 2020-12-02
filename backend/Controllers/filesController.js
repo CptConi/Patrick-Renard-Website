@@ -26,7 +26,7 @@ exports.newPicture = (req, res, next) => {
         name: pictureRequest.name,
         description: pictureRequest.description,
         fullSizePath: `${protocol}://${host}/${folder}/full/${filename}`,
-        midSizePath: `${protocol}://${host}/${folder}/half/${filename}`,
+        halfSizePath: `${protocol}://${host}/${folder}/half/${filename}`,
         miniaturePath: `${protocol}://${host}/${folder}/miniature/${filename}`,
     });
     picture
@@ -40,23 +40,8 @@ exports.uploadCompressedPicture = (req, res, next) => {
 };
 
 exports.modifyPicture = (req, res, next) => {
-    if (req.file) {
-        //Suppression de l'ancienne image dans le stockage serveur:
-        Picture.findOne({ _id: req.params.id })
-            .then((picture) => {
-                const filename = picture.imageUrl.split('/images/')[1];
-                fs.unlink(`images/${filename}`, () => {});
-            })
-            .catch((error) => res.status(500).json({ error }));
-        pictureObject = {
-            //Une modif d'image est demandée
-            ...JSON.parse(req.body.picture),
-            imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
-        };
-    } else {
-        //Modif d'infos texte uniquement
-        pictureObject = { ...req.body };
-    }
+    const pictureObject = { ...req.body };
+
     Picture.updateOne({ _id: req.params.id }, { ...pictureObject, _id: req.params.id })
         .then(() => res.status(200).json({ message: 'Picture modifiée' }))
         .catch((error) => res.status(400).json({ error }));
@@ -64,26 +49,37 @@ exports.modifyPicture = (req, res, next) => {
 
 // Supprime la Picture avecl'ID fourni.
 exports.deletePicture = (req, res, next) => {
+    let deleteFromDB = true;
     Picture.findOne({ _id: req.params.id })
         .then((picture) => {
-            // const filename = picture.imageUrl.split('/images/')[1];
             const fileName = {
                 full: picture.fullSizePath.split('/images/')[1],
-                half: picture.midSizePath.split('/images/')[1],
+                half: picture.halfSizePath.split('/images/')[1],
                 miniature: picture.miniaturePath.split('/images/')[1],
             };
-            fs.unlink(`images/${fileName.miniature}`, (err) => {
-                if (err) throw err;
-            });
-            fs.unlink(`images/${fileName.half}`, (err) => {
-                if (err) throw err;
-            });
-
-            fs.unlink(`images/${fileName.full}`, () => {
-                Picture.deleteOne({ _id: req.params.id })
-                    .then(() => res.status(200).json({ message: 'Picture supprimée' }))
-                    .catch((error) => res.status(400).json({ error }));
-            });
+            if (`images/${fileName.miniature}`) {
+                fs.unlink(`images/${fileName.miniature}`, (err) => {
+                    if (err) throw err;
+                });
+            } else {
+                deleteFromDB = false;
+            }
+            if (`images/${fileName.half}`) {
+                fs.unlink(`images/${fileName.half}`, (err) => {
+                    if (err) throw err;
+                });
+            } else {
+                deleteFromDB = false;
+            }
+            if (`images/${fileName.full}`) {
+                fs.unlink(`images/${fileName.full}`, () => {
+                    if ((deleteFromDB)) {
+                        Picture.deleteOne({ _id: req.params.id })
+                            .then(() => res.status(200).json({ message: 'Picture supprimée' }))
+                            .catch((error) => res.status(400).json({ error }));
+                    }
+                });
+            }
         })
         .catch((error) => res.status(500).json({ error }));
 };

@@ -2,9 +2,11 @@ import React, { useState, useRef } from 'react';
 import Miniature from '../Miniature';
 import http from '../../http-common';
 import imageCompression from 'browser-image-compression';
+import { postPicture, getAllPictures, deletePicture } from '../Services/PictureService';
 import './Test.css';
 
 export default function Test() {
+    // STATE
     const inputFileRef = useRef();
 
     const [prevImage, setPrevImage] = useState(null);
@@ -17,24 +19,12 @@ export default function Test() {
         categorie: 'macros',
     });
 
-    const uploadFileWithDBInfos = (formData) => {
-        http.post('/files', formData)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
-    const uploadFileWithoutDBInfos = (formData) => {
-        http.post('/files/compressed', formData)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+    // FUNCTIONS
+    const uploadFile = (formData, asInfos) => {
+        let uri = asInfos ? '' : '/compressed';
+        postPicture(formData, uri)
+            .then(getAll())
+            .catch((err) => console.log(err));
     };
 
     const createFormData = (formData, image, compressionLevel) => {
@@ -59,14 +49,9 @@ export default function Test() {
     };
 
     const getAll = () => {
-        http.get('/files')
-            .then((response) => {
-                setGetAllResponse(response.data);
-                console.log(getAllResponse);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        getAllPictures()
+            .then((response) => setGetAllResponse(response.data))
+            .catch((err) => console.log(err));
     };
 
     const postChangeName = (e) => {
@@ -100,9 +85,6 @@ export default function Test() {
 
     async function compressAndUpload(maxWidthOrHeight, compressionName) {
         const imageFile = file.file;
-        // console.log('originalFile instanceof Blob', imageFile instanceof Blob); // true
-        // console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
-
         const options = {
             maxSizeMB: 3,
             maxWidthOrHeight: maxWidthOrHeight,
@@ -110,11 +92,9 @@ export default function Test() {
         };
         try {
             const compressedFile = await imageCompression(imageFile, options);
-            // console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
-            // console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
             let formData = new FormData();
             formData = createFormData(formData, compressedFile, compressionName);
-            uploadFileWithoutDBInfos(formData);
+            uploadFile(formData, false);
         } catch (error) {
             console.log(error);
         }
@@ -126,9 +106,16 @@ export default function Test() {
 
         let formData = new FormData();
         formData = createFormData(formData, file.file, 'full');
-        uploadFileWithDBInfos(formData);
+        uploadFile(formData, true);
     };
 
+    const handleDeletePictureClick = (id) => {
+        deletePicture(id)
+            .then(getAll())
+            .catch((err) => console.log(err));
+    };
+
+    // RENDER
     return (
         <div className='test__container'>
             <h1 className='test__title'>Backend Communication test page</h1>
@@ -140,12 +127,24 @@ export default function Test() {
                 <div className='test__images-container'>
                     {getAllResponse &&
                         getAllResponse.map((data) => {
-                            return <Miniature image={data.miniaturePath} width='500' key={data._id} id={data._id} />;
+                            return (
+                                <Miniature
+                                    image={data.miniaturePath}
+                                    width='500'
+                                    key={data._id}
+                                    id={data._id}
+                                    imgTitle={data.name}
+                                    imgDescription={data.description}
+                                    handleClick={handleDeletePictureClick}
+                                />
+                            );
                         })}
                 </div>
             </div>
             <div className='test__bloc col'>
                 <h3>Test POST:</h3>
+                <input type='file' onChange={postChangeFile} ref={inputFileRef} accept='image/*' />
+
                 <input type='text' placeholder='Nom picture' onChange={postChangeName} />
                 <input type='text' placeholder='Description' onChange={postChangeDescription} />
                 <div className='test__categorie'>
@@ -186,7 +185,6 @@ export default function Test() {
                     </div>
                 </div>
 
-                <input type='file' onChange={postChangeFile} ref={inputFileRef} accept='image/*' />
                 <img src={prevImage} alt='' width='300' />
                 <button onClick={postPic}>POST Pic</button>
             </div>
