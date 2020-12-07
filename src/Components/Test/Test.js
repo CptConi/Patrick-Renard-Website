@@ -1,24 +1,30 @@
 import React, { useState, useRef } from 'react';
+
+import { postPicture, deletePicture } from '../../Services/PictureService';
+import usePictureList from './usePictureList';
 import Miniature from '../Miniature';
-import http from '../../http-common';
 import imageCompression from 'browser-image-compression';
-import { postPicture, getAllPictures, deletePicture } from '../Services/PictureService';
-import './Test.css';
+
+// import './Test.css';
+
+
 
 export default function Test() {
+
     // STATE
     const inputFileRef = useRef();
 
     const [prevImage, setPrevImage] = useState(null);
-    const [getAllResponse, setGetAllResponse] = useState();
-
+    
     const [file, setFile] = useState({
         name: '',
         description: '',
         file: '',
         categorie: 'macros',
     });
-
+    
+    const imgList = usePictureList();
+    
     // FUNCTIONS
     const uploadFile = (formData, asInfos) => {
         let uri = asInfos ? '' : '/compressed';
@@ -48,11 +54,9 @@ export default function Test() {
         return formData;
     };
 
-    const getAll = () => {
-        getAllPictures()
-            .then((response) => setGetAllResponse(response.data))
-            .catch((err) => console.log(err));
-    };
+    const getAll =() =>{
+      console.log(imgList);
+    }
 
     const postChangeName = (e) => {
         setFile({
@@ -125,16 +129,16 @@ export default function Test() {
                 <h3>Test GET:</h3>
                 <button onClick={getAll}>GET ALL</button>
                 <div className='test__images-container'>
-                    {getAllResponse &&
-                        getAllResponse.map((data) => {
+                    {imgList &&
+                        imgList.map((img) => {
                             return (
                                 <Miniature
-                                    image={data.miniaturePath}
+                                    image={img.miniaturePath}
                                     width='500'
-                                    key={data._id}
-                                    id={data._id}
-                                    imgTitle={data.name}
-                                    imgDescription={data.description}
+                                    key={img._id}
+                                    id={img._id}
+                                    imgTitle={img.name}
+                                    imgDescription={img.description}
                                     handleClick={handleDeletePictureClick}
                                 />
                             );

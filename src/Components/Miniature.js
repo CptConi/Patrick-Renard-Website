@@ -1,5 +1,4 @@
 import React from 'react';
-import { deletePicture } from "./Services/PictureService";
 
 import './Miniature.css';
 
@@ -14,9 +13,9 @@ export default function Miniature(props) {
     return (
         <div className='miniature__container'>
             <img src={props.image} width={props.width} alt='' />
-            <a className='miniature__btn--delete' onClick={handleClick}>
+            <button className='miniature__btn--delete' onClick={handleClick}>
                 &times;
-            </a>
+            </button>
             <div className='miniature__bloc-infos'>
                 <ul>
                     <li>Titre: {props.imgTitle}</li>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Title from './Text/Title';
 import Section from './Section';
-import sectionText from '../../content';
+import sectionText from '../../Services/content';
 
 export default function Accueil() {
     return (
