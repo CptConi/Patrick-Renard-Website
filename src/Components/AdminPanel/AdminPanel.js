@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PostPicture from './PostPicture';
+import ManagePictures from './ManagePictures';
 import './AdminPanel.css';
 
 export default function AdminPanel() {
@@ -39,7 +40,11 @@ export default function AdminPanel() {
             </div>
             <div className='adminpanel__display'>
                 {isVisible.post && <PostPicture />}
-                {isVisible.get && <div>DISPLAYING GET LAYOUT</div>}
+                {isVisible.get && (
+                    <div>
+                        <ManagePictures />
+                    </div>
+                )}
             </div>
         </div>
     );

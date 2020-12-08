@@ -112,7 +112,7 @@ export default function PostPicture() {
                         type='radio'
                         id='macros'
                         name='categorie'
-                        value='Macros'
+                        value='macros'
                         defaultChecked
                         onChange={ChangeCategory}
                     />
@@ -124,7 +124,7 @@ export default function PostPicture() {
                         type='radio'
                         id='portraits'
                         name='categorie'
-                        value='Portraits'
+                        value='portraits'
                         onChange={ChangeCategory}
                     />
                     <label htmlFor='portraits'>Studio Portraits</label>
@@ -135,7 +135,7 @@ export default function PostPicture() {
                         type='radio'
                         id='graphistes'
                         name='categorie'
-                        value='Graphistes'
+                        value='graphistes'
                         onChange={ChangeCategory}
                     />
                     <label htmlFor='graphistes'>Au Café des Graphistes</label>

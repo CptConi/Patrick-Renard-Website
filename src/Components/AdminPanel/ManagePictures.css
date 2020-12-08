@@ -1,0 +1,25 @@
+.ManagePictures__images-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.ManagePictures__images-container img{
+    padding: 10px 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+detail{
+    transition: all 0.3s ease;
+}
+
+summary{
+    font-size: 28px;
+    outline: none;
+    cursor: pointer;
+}

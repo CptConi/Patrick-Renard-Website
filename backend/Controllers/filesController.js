@@ -25,6 +25,7 @@ exports.newPicture = (req, res, next) => {
     const picture = new Picture({
         name: pictureRequest.name,
         description: pictureRequest.description,
+        category: pictureRequest.categorie,
         fullSizePath: `${protocol}://${host}/${folder}/full/${filename}`,
         halfSizePath: `${protocol}://${host}/${folder}/half/${filename}`,
         miniaturePath: `${protocol}://${host}/${folder}/miniature/${filename}`,
@@ -73,7 +74,7 @@ exports.deletePicture = (req, res, next) => {
             }
             if (`images/${fileName.full}`) {
                 fs.unlink(`images/${fileName.full}`, () => {
-                    if ((deleteFromDB)) {
+                    if (deleteFromDB) {
                         Picture.deleteOne({ _id: req.params.id })
                             .then(() => res.status(200).json({ message: 'Picture supprimée' }))
                             .catch((error) => res.status(400).json({ error }));
