@@ -14,7 +14,7 @@ router.get('/:id', filesController.getOnePicture);
 router.post('/', multer, filesController.newPicture);
 router.post('/compressed', multer, filesController.uploadCompressedPicture);
 
-router.put('/:id', auth, multer, filesController.modifyPicture);
+router.put('/:category', /*auth,*/  filesController.modifyPicture);
 
 router.delete('/:id', /*auth,*/ filesController.deletePicture);
 
