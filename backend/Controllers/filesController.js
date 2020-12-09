@@ -41,10 +41,19 @@ exports.uploadCompressedPicture = (req, res, next) => {
 };
 
 exports.modifyPicture = (req, res, next) => {
-    const pictureObject = { ...req.body };
+    
 
-    Picture.updateOne({ _id: req.params.id }, { ...pictureObject, _id: req.params.id })
-        .then(() => res.status(200).json({ message: 'Picture modifiée' }))
+    Picture.updateOne(
+        { category: req.params.category, isOnLandingPage: true },
+        { isOnLandingPage: false }
+    )        
+        .catch((error) => res.status(400).json({ error }));
+    
+    Picture.updateOne(
+        { _id: req.body.id },
+        { isOnLandingPage: true }
+    )
+        .then(() => res.status(200).json({ message: 'New landing page pic created' }))
         .catch((error) => res.status(400).json({ error }));
 };
 
