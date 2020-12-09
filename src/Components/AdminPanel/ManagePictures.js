@@ -1,17 +1,28 @@
-import React from 'react';
-import usePicturesList from './usePicturesList';
+import React, { useState, useEffect } from 'react';
+import { getAllPictures } from '../../Services/PictureService';
 import Miniature from './Miniature';
 import { deletePicture } from '../../Services/PictureService';
 import './ManagePictures.css';
 
 export default function ManagePictures() {
-    const picturesList = usePicturesList();
+    const [picturesList, setPicturesList] = useState();
 
     console.log(picturesList);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await getAllPictures();
+            setPicturesList(response.data);
+        };
+        fetchData();
+    }, []);
+
     const handleDeletePictureClick = (id) => {
         deletePicture(id)
-            .then()
+            .then(() => {
+                // Permet de supprimer l'image du state et ainsi mettre à jour l'affichage
+                setPicturesList(picturesList.filter((pic) => pic._id !== id));
+            })
             .catch((err) => console.log(err));
     };
 
@@ -36,6 +47,8 @@ export default function ManagePictures() {
                                             id={img._id}
                                             imgTitle={img.name}
                                             imgDescription={img.description}
+                                            category={img.category}
+                                            isOnLandingPage={img.isOnLandingPage}
                                             handleClick={handleDeletePictureClick}
                                         />
                                     );
@@ -57,6 +70,7 @@ export default function ManagePictures() {
                                             id={img._id}
                                             imgTitle={img.name}
                                             imgDescription={img.description}
+                                            category={img.category}
                                             handleClick={handleDeletePictureClick}
                                         />
                                     );
@@ -78,6 +92,7 @@ export default function ManagePictures() {
                                             id={img._id}
                                             imgTitle={img.name}
                                             imgDescription={img.description}
+                                            category={img.category}
                                             handleClick={handleDeletePictureClick}
                                         />
                                     );

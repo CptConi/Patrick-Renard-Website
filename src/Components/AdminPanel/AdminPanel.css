@@ -1,5 +1,5 @@
 .adminpanel__container {
-    margin: 80px auto;
+    margin: 80px auto 300px;
     width: 80%;
 }
 
@@ -15,11 +15,12 @@
 }
 
 .inactive {
-    background: #ccc;
+    background: #aaa;
 }
 
 .adminpanel__display {
     margin: auto;
+    margin-bottom: 100px;
     border: 1px solid gray;
 }
 

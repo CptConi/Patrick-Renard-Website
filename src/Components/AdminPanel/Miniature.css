@@ -31,10 +31,17 @@
 .miniature__bloc-infos {
 }
 
-.miniature__wrapper{
+.miniature__wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.radio__landingpagecheck {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    transform: scale(1.5);
 }

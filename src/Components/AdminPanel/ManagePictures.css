@@ -1,9 +1,12 @@
+
+
 .ManagePictures__images-container{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+
 }
 
 .ManagePictures__images-container img{
