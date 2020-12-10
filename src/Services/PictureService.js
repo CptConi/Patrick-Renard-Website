@@ -15,3 +15,7 @@ export const deletePicture = (id) => {
 export const setLandingPagePicture = (id, category) => {
     return http.put('' + category, { id: id });
 };
+
+export const getLandingPagePics = () => {
+    return http.get('/landingpagepic');
+};

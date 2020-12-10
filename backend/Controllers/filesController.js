@@ -1,5 +1,6 @@
 const Picture = require('../models/pictureSchema');
 const fs = require('fs');
+const { send } = require('process');
 
 // Renvoie le tableau de toutes les pictures depuis la base de données
 exports.getAllPictures = (req, res, next) => {
@@ -15,6 +16,13 @@ exports.getOnePicture = (req, res, next) => {
         .catch((error) => res.status(404).json({ error }));
 };
 
+exports.getLandingPagePictures = (req, res, next) => {
+    Picture.find({ isOnLandingPage: true })
+        .then((pictures) => res.status(200).json(pictures))
+        .catch((error) => res.status(404).json({ error }));
+};
+
+// Ajoute une picture non compressée sur le serveur et dans la BDD
 exports.newPicture = (req, res, next) => {
     let pictureRequest = JSON.parse(req.body.picture);
     const protocol = req.protocol;
@@ -36,23 +44,18 @@ exports.newPicture = (req, res, next) => {
         .catch((error) => res.status(400).json({ error }));
 };
 
+//Upload une picture compressée au serveur. Pas d'effet direct sur la BDD
 exports.uploadCompressedPicture = (req, res, next) => {
     res.json('File uploaded successfully');
 };
 
 exports.modifyPicture = (req, res, next) => {
-    
-
     Picture.updateOne(
         { category: req.params.category, isOnLandingPage: true },
         { isOnLandingPage: false }
-    )        
-        .catch((error) => res.status(400).json({ error }));
-    
-    Picture.updateOne(
-        { _id: req.body.id },
-        { isOnLandingPage: true }
-    )
+    ).catch((error) => res.status(400).json({ error }));
+
+    Picture.updateOne({ _id: req.body.id }, { isOnLandingPage: true })
         .then(() => res.status(200).json({ message: 'New landing page pic created' }))
         .catch((error) => res.status(400).json({ error }));
 };

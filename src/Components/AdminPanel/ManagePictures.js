@@ -71,6 +71,7 @@ export default function ManagePictures() {
                                             imgTitle={img.name}
                                             imgDescription={img.description}
                                             category={img.category}
+                                            isOnLandingPage={img.isOnLandingPage}
                                             handleClick={handleDeletePictureClick}
                                         />
                                     );
@@ -93,6 +94,7 @@ export default function ManagePictures() {
                                             imgTitle={img.name}
                                             imgDescription={img.description}
                                             category={img.category}
+                                            isOnLandingPage={img.isOnLandingPage}
                                             handleClick={handleDeletePictureClick}
                                         />
                                     );
