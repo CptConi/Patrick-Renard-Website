@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar';
 import Accueil from './Components/Accueil/Accueil';
 import About from './Components/About/About';
 import Test from './Components/Test/Test';
+import Gallery from './Components/Gallery/Gallery';
 import AdminPanel from './Components/AdminPanel/AdminPanel';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Error from './Components/Error/Error';
@@ -19,6 +20,9 @@ function App() {
                     <Route exact path='/apropos' component={About} />
                     <Route exact path='/test' component={Test} />
                     <Route exact path='/admin-panel' component={AdminPanel} />
+                    <Route exact path='/mondes-macros' component={Gallery} />
+                    <Route exact path='/studio-portrait' component={Gallery} />
+                    <Route exact path='/au-cafe-des-graphistes' component={Gallery} />
                     <Route component={Error} />
                     <footer className='footer'></footer>
                 </Switch>

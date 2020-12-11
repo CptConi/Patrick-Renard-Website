@@ -16,11 +16,19 @@ exports.getOnePicture = (req, res, next) => {
         .catch((error) => res.status(404).json({ error }));
 };
 
+//Renvoie les pictures qui seront display en Landing Page pour chaque section / categorie
 exports.getLandingPagePictures = (req, res, next) => {
     Picture.find({ isOnLandingPage: true })
         .then((pictures) => res.status(200).json(pictures))
         .catch((error) => res.status(404).json({ error }));
 };
+
+// Renvoie l'ensemble des pictures de la catégorie en params
+exports.getGalleryFromCategory = (req, res, next) => {
+    Picture.find({ category: req.params.category })
+        .then((pictures) => res.status(200).json(pictures))
+        .catch((error) => res.status(404).json({ error }));
+}
 
 // Ajoute une picture non compressée sur le serveur et dans la BDD
 exports.newPicture = (req, res, next) => {

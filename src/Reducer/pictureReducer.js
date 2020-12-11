@@ -1,14 +1,13 @@
 const initialState = {
-    pictureList:''
-}
+    currentCategory: '',
+};
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
+        case 'SET_CATEGORY':
+            return { ...state, currentCategory: payload };
 
-    case 'GET_ALL':
-        return { ...state, ...payload }
-
-    default:
-        return state
+        default:
+            return state;
     }
-}
+};

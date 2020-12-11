@@ -17,5 +17,9 @@ export const setLandingPagePicture = (id, category) => {
 };
 
 export const getLandingPagePics = () => {
-    return http.get('/landingpagepic');
+    return http.get('/landingpagepics');
 };
+
+export const getGalleryFromCategory = (category) => {
+    return http.get(`gallery/${category}`);
+}

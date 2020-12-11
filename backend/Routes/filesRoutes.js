@@ -9,13 +9,13 @@ const filesController = require('../Controllers/filesController');
 // Les routes fonction des requêtes à l'API:
 
 router.get('/', filesController.getAllPictures);
-// router.get('/:id', filesController.getOnePicture);
-router.get('/landingpagepic', filesController.getLandingPagePictures);
+router.get('/landingpagepics', filesController.getLandingPagePictures);
+router.get('/gallery/:category', filesController.getGalleryFromCategory);
 
 router.post('/', multer, filesController.newPicture);
 router.post('/compressed', multer, filesController.uploadCompressedPicture);
 
-router.put('/:category', /*auth,*/  filesController.modifyPicture);
+router.put('/:category', /*auth,*/ filesController.modifyPicture);
 
 router.delete('/:id', /*auth,*/ filesController.deletePicture);
 
