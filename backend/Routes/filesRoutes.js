@@ -11,9 +11,10 @@ const filesController = require('../Controllers/filesController');
 router.get('/', filesController.getAllPictures);
 router.get('/landingpagepics', filesController.getLandingPagePictures);
 router.get('/gallery/:category', filesController.getGalleryFromCategory);
+router.get('/picture/:id', filesController.getOnePicture);
 
-router.post('/', multer, filesController.newPicture);
-router.post('/compressed', multer, filesController.uploadCompressedPicture);
+router.post('/', /*auth,*/ multer, filesController.newPicture);
+router.post('/compressed', /*auth,*/ multer, filesController.uploadCompressedPicture);
 
 router.put('/:category', /*auth,*/ filesController.modifyPicture);
 

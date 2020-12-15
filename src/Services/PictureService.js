@@ -23,3 +23,7 @@ export const getLandingPagePics = () => {
 export const getGalleryFromCategory = (category) => {
     return http.get(`gallery/${category}`);
 }
+
+export const getOnePicture = (id) => {
+    return http.get(`picture/${id}`);
+}
