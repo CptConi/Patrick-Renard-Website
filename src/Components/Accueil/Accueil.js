@@ -23,7 +23,7 @@ export default function Accueil() {
             setContent(oldData);
         };
         fetchData();
-    }, []);
+    });
 
     return (
         <div>

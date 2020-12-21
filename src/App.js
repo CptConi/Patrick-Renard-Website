@@ -4,7 +4,6 @@ import Accueil from './Components/Accueil/Accueil';
 import About from './Components/About/About';
 import Test from './Components/Test/Test';
 import Gallery from './Components/Gallery/Gallery';
-import Slider from './Components/Gallery/Slider'
 import AdminPanel from './Components/AdminPanel/AdminPanel';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Error from './Components/Error/Error';
@@ -24,7 +23,6 @@ function App() {
                     <Route exact path='/mondes-macros' component={Gallery} />
                     <Route exact path='/studio-portrait' component={Gallery} />
                     <Route exact path='/au-cafe-des-graphistes' component={Gallery} />
-                    <Route exact path='/slider' component={Slider} />
                     <Route component={Error} />
                     <footer className='footer'></footer>
                 </Switch>
