@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getLandingPagePics } from '../../Services/PictureService';
-import Title from './Text/Title';
+import Title from './Title';
 import Section from './Section';
 import sectionText from '../../Services/content';
 
+import './Accueil.css';
+
 export default function Accueil() {
     const [content, setContent] = useState(sectionText);
-    console.log(content);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,17 +17,17 @@ export default function Accueil() {
                 .halfSizePath;
             const graphistes = response.data.filter((pic) => pic.category === 'graphistes')[0]
                 .halfSizePath;
-            const oldData = [...content];
-            oldData[0].imagePath = macros;
-            oldData[1].imagePath = portraits;
-            oldData[2].imagePath = graphistes;
-            setContent(oldData);
+            const responseData = [...content];
+            responseData[0].imagePath = macros;
+            responseData[1].imagePath = portraits;
+            responseData[2].imagePath = graphistes;
+            setContent(responseData);
         };
         fetchData();
     });
 
     return (
-        <div>
+        <div className='Accueil__container'>
             <Title />
             {content.map((section) => {
                 return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import PerspectiveMiniature from './PerspectiveMiniature';
-import './Section.css';
+import './Accueil.css';
 
 export default function Section(props) {
     return (

@@ -1,8 +1,0 @@
-.section__tilt {
-    transform: translateY(40px);
-    cursor: pointer;
-}
-
-.section__image {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-}

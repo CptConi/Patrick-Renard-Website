@@ -1,5 +1,5 @@
 import React from 'react'
-import './Title.css'
+import './Accueil.css'
 
 export default function Title() {
     return (
