@@ -5,8 +5,11 @@ const { send } = require('process');
 // Renvoie le tableau de toutes les pictures depuis la base de données
 exports.getAllPictures = (req, res, next) => {
     Picture.find()
-        console.log('getAllPictures')
-        .then((picture) => res.status(200).json(picture))
+
+        .then((picture) => {
+            console.log('getAllPictures');
+            res.status(200).json(picture);
+        })
         .catch((error) => res.status(404).json({ error }));
 };
 
@@ -29,7 +32,7 @@ exports.getGalleryFromCategory = (req, res, next) => {
     Picture.find({ category: req.params.category })
         .then((pictures) => res.status(200).json(pictures))
         .catch((error) => res.status(404).json({ error }));
-}
+};
 
 // Ajoute une picture non compressée sur le serveur et dans la BDD
 exports.newPicture = (req, res, next) => {
