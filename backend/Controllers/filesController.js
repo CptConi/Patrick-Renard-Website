@@ -5,6 +5,7 @@ const { send } = require('process');
 // Renvoie le tableau de toutes les pictures depuis la base de données
 exports.getAllPictures = (req, res, next) => {
     Picture.find()
+        console.log('getAllPictures')
         .then((picture) => res.status(200).json(picture))
         .catch((error) => res.status(404).json({ error }));
 };
