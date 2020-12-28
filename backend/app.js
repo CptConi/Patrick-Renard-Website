@@ -18,7 +18,7 @@ const filesRoutes = require('./Routes/filesRoutes');
 const uri = process.env.MONGO_URI;
 
 mongoose
-    .connect(uri, { useNewUrlParser: true })
+    .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch((err) => console.log('Connexion à MongoDB échouée !', err));
 
