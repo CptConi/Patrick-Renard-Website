@@ -40,7 +40,7 @@ exports.newPicture = (req, res, next) => {
     const protocol = req.protocol;
     const host = req.get('host');
     const folder = `images/${pictureRequest.categorie}`;
-    const filename = req.file.path.split('\\')[3];
+    const filename = req.file.path.split('\/')[3];
     console.log(`Requete post recu pour la photo ${filename}`);
     const picture = new Picture({
         name: pictureRequest.name,
