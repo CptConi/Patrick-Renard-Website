@@ -46,6 +46,12 @@ h1.main-title {
     margin: auto;
     padding: 60px 0;
     margin-bottom: 80px;
+    transition: all 0.3s ease-in-out;
+}
+
+.section__container:hover{
+    width: 90%;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
 
 /* MACROS SECTION */
