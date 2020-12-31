@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from './Components/Navbar/Navbar';
 import Accueil from './Components/Accueil/Accueil';
 import About from './Components/About/About';
-import Test from './Components/Test/Test';
 import Gallery from './Components/Gallery/Gallery';
 import AdminPanel from './Components/AdminPanel/AdminPanel';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -18,7 +17,7 @@ function App() {
                     <Route exact path='/accueil' component={Accueil} />
                     <Route exact path='/' component={Accueil} />
                     <Route exact path='/apropos' component={About} />
-                    <Route exact path='/test' component={Test} />
+                    
                     <Route exact path='/admin-panel' component={AdminPanel} />
                     <Route exact path='/mondes-macros' component={Gallery} />
                     <Route exact path='/studio-portrait' component={Gallery} />

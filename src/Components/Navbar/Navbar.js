@@ -21,11 +21,6 @@ export default function Navbar() {
                         Administration du Site
                     </Link>
                 </li>
-                <li>
-                    <Link to='/test' className='home'>
-                        [Test]
-                    </Link>
-                </li>
             </ul>
 
             <ul>

@@ -24,7 +24,7 @@ export default function Accueil() {
             setContent(responseData);
         };
         fetchData();
-    });
+    },[]); 
 
     return (
         <div className='Accueil__container'>
