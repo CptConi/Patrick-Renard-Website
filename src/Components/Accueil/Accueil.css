@@ -1,19 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+@font-face {
+    font-family: 'edoregular';
+    src: url('../../Assets/web\ fonts/edo_regular_macroman/edo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
-h1.main-title{
-    margin: 0;
+h1.main-title {
+    margin: auto;
     padding: 40px 30px 20px;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 108px;
-    color: #AAA;
+    text-align: center;
+    font-family: 'edoregular', 'Cinzel', cursive;
+    font-size: 140px;
+    color: #aaa;
+}
+
+.sections__box{
+    margin-top: 50px;
+    padding-bottom: 80px;
 }
 
 /*  GENERAL */
 
 .section-title {
     font-size: 80px;
+    margin-bottom: 50px;
     text-align: center;
-    font-family: Gabriola,  -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    font-family: Gabriola, -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    
 }
 
 .section-text {
@@ -21,14 +35,24 @@ h1.main-title{
     justify-content: center;
     align-items: center;
     font-size: 21px;
-    font-family: Gabriola,  -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    font-family: Gabriola, -apple-system, BlinkMacSystemFont, 'Segoe UI';
+}
+
+.section__container{
+    border: 30px solid #FFF;
+    background-color: #EEE;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 80%;
+    margin: auto;
+    padding: 60px 0;
+    margin-bottom: 80px;
 }
 
 /* MACROS SECTION */
 .macros {
     display: flex;
     flex-direction: row;
-    margin-bottom: 200px;
+   
 }
 
 .macros-container-text {
@@ -56,7 +80,7 @@ h1.main-title{
 .portraits {
     display: flex;
     flex-direction: row-reverse;
-    margin-bottom: 200px;
+    
 }
 
 .portraits-container-text {
@@ -84,7 +108,7 @@ h1.main-title{
 .graphistes {
     display: flex;
     flex-direction: row;
-    padding-bottom: 100px;
+    
 }
 
 .graphistes-container-text {
@@ -116,10 +140,10 @@ h1.main-title{
 }
 
 .section__image {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 }
 
-.skeleton{
+.skeleton {
     height: 380px;
     margin: auto;
 }

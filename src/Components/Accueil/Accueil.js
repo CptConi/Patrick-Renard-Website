@@ -29,18 +29,21 @@ export default function Accueil() {
     return (
         <div className='Accueil__container'>
             <Title />
-            {content.map((section) => {
-                return (
-                    <Section
-                        key={section.id}
-                        classe={section.classe}
-                        title={section.title}
-                        description={section.description}
-                        image={section.imagePath}
-                        urlLink={section.urlLink}
-                    />
-                );
-            })}
+
+            <div className='sections__box'>
+                {content.map((section) => {
+                    return (
+                        <Section
+                            key={section.id}
+                            classe={section.classe}
+                            title={section.title}
+                            description={section.description}
+                            image={section.imagePath}
+                            urlLink={section.urlLink}
+                        />
+                    );
+                })}
+            </div>
         </div>
     );
 }
