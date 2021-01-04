@@ -34,7 +34,9 @@ h1.main-title {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 21px;
+    font-size: 28px;
+    line-height: 1.4em;
+    font-weight: 500;
     font-family: Gabriola, -apple-system, BlinkMacSystemFont, 'Segoe UI';
 }
 
