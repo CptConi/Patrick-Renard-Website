@@ -25,6 +25,7 @@ export default function Accueil() {
             setContent(responseData);
         };
         fetchData();
+        // eslint-disable-next-line
     },[]); 
 
     return (

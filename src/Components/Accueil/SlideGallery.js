@@ -34,6 +34,7 @@ export default function SlideGallery() {
                                     if (index === picturesList.length - 1) {
                                         setIsVisible('animated-scroll');
                                     }
+                                    // eslint-disable-next-line
                                     {
                                         setLoadingValue(
                                             computeLoadingValue(index, picturesList.length - 1)
