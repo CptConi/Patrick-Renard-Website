@@ -156,7 +156,6 @@ h1.main-title {
 
 .slideGallery {
     z-index: 5;
-    transform: translateX(-50%);
     height: 200vh;
 }
 
@@ -177,7 +176,6 @@ h1.main-title {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateX(-50%);
     animation: autoSlidePictures 5s ease-in-out;
     animation-fill-mode: forwards;
 }
@@ -185,13 +183,14 @@ h1.main-title {
 @keyframes autoSlidePictures{
     0%{
         left: 50%;
-        top: -20%;
-        scale: 1;
+        top: -500%;
+        transform: scale(1) translateX(-50%);
         opacity: 1;
     }
     100%{ 
+        left: 50%;
         top:700%;
-        scale: 1.7;
+        transform: scale(1.7) translateX(-50%);
         opacity: 0;
     }
 }
