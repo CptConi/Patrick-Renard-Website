@@ -15,7 +15,7 @@ h1.main-title {
     color: #aaa;
 }
 
-.sections__box{
+.sections__box {
     margin-top: 50px;
     padding-bottom: 80px;
 }
@@ -27,7 +27,6 @@ h1.main-title {
     margin-bottom: 50px;
     text-align: center;
     font-family: Gabriola, -apple-system, BlinkMacSystemFont, 'Segoe UI';
-    
 }
 
 .section-text {
@@ -40,10 +39,10 @@ h1.main-title {
     font-family: Gabriola, -apple-system, BlinkMacSystemFont, 'Segoe UI';
 }
 
-.section__container{
-    border: 30px solid #FFF;
-    background-color: #EEE;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+.section__container {
+    border: 30px solid #fff;
+    background-color: #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: 80%;
     margin: auto;
     padding: 60px 0;
@@ -51,16 +50,15 @@ h1.main-title {
     transition: all 0.3s ease-in-out;
 }
 
-.section__container:hover{
+.section__container:hover {
     width: 90%;
-    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
 /* MACROS SECTION */
 .macros {
     display: flex;
     flex-direction: row;
-   
 }
 
 .macros-container-text {
@@ -88,7 +86,6 @@ h1.main-title {
 .portraits {
     display: flex;
     flex-direction: row-reverse;
-    
 }
 
 .portraits-container-text {
@@ -116,7 +113,6 @@ h1.main-title {
 .graphistes {
     display: flex;
     flex-direction: row;
-    
 }
 
 .graphistes-container-text {
@@ -154,4 +150,48 @@ h1.main-title {
 .skeleton {
     height: 380px;
     margin: auto;
+}
+
+/* SlideGALLERY */
+
+.slideGallery {
+    z-index: 5;
+    transform: translateX(-50%);
+    height: 200vh;
+}
+
+.slideGallery__img {
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.animated-scroll {
+    position: absolute;
+    left: 50%;
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+    animation: autoSlidePictures 5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes autoSlidePictures{
+    0%{
+        left: 50%;
+        top: -20%;
+        scale: 1;
+        opacity: 1;
+    }
+    100%{ 
+        top:700%;
+        scale: 1.7;
+        opacity: 0;
+    }
 }

@@ -3,6 +3,7 @@ import { getLandingPagePics } from '../../Services/PictureService';
 import Title from './Title';
 import Section from './Section';
 import sectionText from '../../Services/content';
+import SlideGallery from './SlideGallery'
 
 import './Accueil.css';
 
@@ -29,7 +30,7 @@ export default function Accueil() {
     return (
         <div className='Accueil__container'>
             <Title />
-
+            <SlideGallery/>
             <div className='sections__box'>
                 {content.map((section) => {
                     return (
