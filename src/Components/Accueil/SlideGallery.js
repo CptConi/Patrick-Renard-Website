@@ -20,13 +20,17 @@ export default function SlideGallery() {
     };
 
     return (
-        <div>
-            <h2>Chargement: {loadingValue} %</h2>
+        <div className='slideGallery__placeholder'>
+            <div className='loading-title'>
+                Patrick d'Andernos
+                <div className='overlay' style={{width:`${loadingValue}%`}}>Patrick d'Andernos</div>
+            </div>
             <div className={`slideGallery ${isVisible}`}>
                 {picturesList &&
                     picturesList.map((pic, index) => {
                         return (
-                            <img className='slideGallery__img'
+                            <img
+                                className='slideGallery__img'
                                 src={pic.miniaturePath}
                                 alt={pic.description}
                                 key={pic._id}
