@@ -153,7 +153,7 @@ h1.main-title {
     margin: auto;
 }
 
-/* SlideGALLERY */
+/* TitleLoading */
 
 .title-loading__wrapper {
     position: fixed;
@@ -183,29 +183,42 @@ h1.main-title {
     transition: all 0.5s 0.5s ease;
 }
 
+/* MENUIMAGE */
+
 .menuImage {
-    width: 30%;
+    width: 550px;
+    border: 7px white solid;
+    transition: all 0.3s ease;
+
 }
 
 .menuImage__macros {
     position: absolute;
-    top: -4%;
+    top: 8%;
     left: 4%;
-
-    animation: 
-        slide-in-bck-center-macro 1.1s 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    /* transform-origin: center;
+    transform: perspective(700px) translateZ(0) rotate(-15deg);
+    opacity: 0.7; */
+    transition: all 0.3s ease;
+    animation: slide-in-bck-center-macros 1.1s 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+.menuImage:hover {
+    cursor: pointer;
+    animation: hover-anim 0.4s both;
+
+}
+
 .menuImage__portraits {
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 60%;
-    animation: slide-in-bck-center 1.1s 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-in-bck-center-portraits 1.1s 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .menuImage__graphistes {
     position: absolute;
-    top: 75%;
-    left: 40%;
-    animation: slide-in-bck-center 1.1s 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    top: 65%;
+    left: 35%;
+    animation: slide-in-bck-center-graphistes 1.1s 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 /* ----------------------------------------------
@@ -220,18 +233,8 @@ h1.main-title {
  * animation slide-in-bck-center
  * ----------------------------------------
  */
-@keyframes slide-in-bck-center {
-    0% {
-        transform: perspective(700px) translateZ(600px);
-        opacity: 0;
-    }
-    100% {
-        transform: perspective(700px) translateZ(0);
-        opacity: 1;
-    }
-}
 
-@keyframes slide-in-bck-center-macro {
+@keyframes slide-in-bck-center-macros {
     0% {
         transform-origin: center;
         transform: perspective(700px) translateZ(600px) rotate(0);
@@ -240,6 +243,42 @@ h1.main-title {
     100% {
         transform-origin: center;
         transform: perspective(700px) translateZ(0) rotate(-15deg);
+        opacity: 0.9;
+    }
+}
+@keyframes slide-in-bck-center-portraits {
+    0% {
+        transform-origin: center;
+        transform: perspective(700px) translateZ(600px) rotate(0);
+        opacity: 0;
+    }
+    100% {
+        transform-origin: center;
+        transform: perspective(700px) translateZ(0) rotate(4deg);
+        opacity: 0.9;
+    }
+}
+@keyframes slide-in-bck-center-graphistes {
+    0% {
+        transform-origin: center;
+        transform: perspective(700px) translateZ(600px) rotate(0);
+        opacity: 0;
+    }
+    100% {
+        transform-origin: center;
+        transform: perspective(700px) translateZ(0) rotate(-2deg);
+        opacity: 0.9;
+    }
+}
+
+/* HOVER MACRO */
+@keyframes hover-anim {
+    0% {
+        opacity: 1;
+        transform: perspective(700px) translateZ(0);
+    }
+    100% {
+        transform: perspective(700px) translateZ(20px);
         opacity: 1;
     }
 }

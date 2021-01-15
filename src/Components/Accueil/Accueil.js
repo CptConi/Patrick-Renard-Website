@@ -27,6 +27,30 @@ export default function Accueil() {
             setContent(responseData);
         };
         fetchData();
+        // Handling Parallax
+        const wrapper = document.querySelector('body');
+        const title = document.querySelector('#titleRef');
+        const imgMacros = document.querySelector('#menuImageRef__macros');
+        const imgPortraits = document.querySelector('#menuImageRef__portraits');
+        const imgGraphistes = document.querySelector('#menuImageRef__graphistes');
+        wrapper.addEventListener('mousemove', (e) => {
+            // TITLE
+            title.style.top = `${50 + -e.clientY / 200}%`;
+            title.style.left = `${50 + -e.clientX / 200}%`;
+            // MACROS
+            imgMacros.style.top = `${8 + -e.clientY / 1000}%`;
+            imgMacros.style.left = `${4 + -e.clientX / 1000}%`;
+            // PORTRAITS
+            imgPortraits.style.top = `${20 + -e.clientY / 1000}%`;
+            imgPortraits.style.left = `${60 + -e.clientX / 1000}%`;
+            // GRAPHISTES
+            imgGraphistes.style.top = `${65 + -e.clientY / 1000}%`;
+            imgGraphistes.style.left = `${35 + -e.clientX / 1000}%`;
+            
+        });
+        return () => {
+            wrapper.removeEventListener('mousemove', () => {});
+        };
         // eslint-disable-next-line
     }, []);
 
