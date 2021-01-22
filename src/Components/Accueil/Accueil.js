@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getLandingPagePics } from '../../Services/PictureService';
-// import Section from './Section';
 import sectionText from '../../Services/content';
 import TitleLoading from './TitleLoading';
+import PerspectiveMiniature from './PerspectiveMiniature'
 import MenuImage from './MenuImage';
 
 import './Accueil.css';
@@ -39,7 +39,7 @@ export default function Accueil() {
             // // MACROS
             parrallaxElementMove(imgMacros, e, { posX: 4, posY: 8 }, 1000);
             // // PORTRAITS
-            parrallaxElementMove(imgPortraits, e, { posX: 60, posY: 20 }, 1000);
+            parrallaxElementMove(imgPortraits, e, { posX: 60, posY: 0 }, 1000);
             // // GRAPHISTES
             parrallaxElementMove(imgGraphistes, e, { posX: 35, posY: 65 }, 1000);
         });
@@ -85,24 +85,12 @@ export default function Accueil() {
                         urlLink={image.urlLink}
                         title={image.title}
                         icon={image.icon}
+                        description={image.description}
                     />
+                   
                 );
             })}
 
-            {/* <div className='sections__box'>
-                {content.map((section) => {
-                    return (
-                        <Section
-                            key={section.id}
-                            classe={section.category}
-                            title={section.title}
-                            description={section.description}
-                            image={section.imagePath}
-                            urlLink={section.urlLink}
-                        />
-                    );
-                })}
-            </div> */}
         </div>
     );
 }
