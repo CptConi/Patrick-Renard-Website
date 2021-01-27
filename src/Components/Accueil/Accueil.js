@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { getLandingPagePics } from '../../Services/PictureService';
 import sectionText from '../../Services/content';
 import TitleLoading from './TitleLoading';
-import PerspectiveMiniature from './PerspectiveMiniature'
 import MenuImage from './MenuImage';
+import PerspectiveMiniature from './PerspectiveMiniature';
+
 
 import './Accueil.css';
 
@@ -39,7 +40,7 @@ export default function Accueil() {
             // // MACROS
             parrallaxElementMove(imgMacros, e, { posX: 4, posY: 8 }, 1000);
             // // PORTRAITS
-            parrallaxElementMove(imgPortraits, e, { posX: 60, posY: 0 }, 1000);
+            parrallaxElementMove(imgPortraits, e, { posX: 60, posY: 20 }, 1000);
             // // GRAPHISTES
             parrallaxElementMove(imgGraphistes, e, { posX: 35, posY: 65 }, 1000);
         });
@@ -76,18 +77,31 @@ export default function Accueil() {
             <TitleLoading loadingValue={loadingValue} />
             {content.map((image) => {
                 return (
-                    <MenuImage
-                        atlText={image.title}
-                        path={image.imagePath}
-                        imageIsLoaded={incrLoadingValue}
-                        key={image.id}
-                        category={image.category}
-                        urlLink={image.urlLink}
-                        title={image.title}
-                        icon={image.icon}
-                        description={image.description}
-                    />
-                   
+                    <div
+                        className={`menuImage__${image.category} slideDown__${image.category}`}
+                        id={`menuImageRef__${image.category}`}>
+                        <PerspectiveMiniature
+                            image={image.imagePath}
+                            urlLink={image.urlLink}
+                            altText={image.title}
+                            imageIsLoaded={incrLoadingValue}
+                            title={image.title}
+                            icon={image.icon}
+                            description={image.description}
+                        />
+                    </div>
+
+                    // <MenuImage
+                    //     atlText={image.title}
+                    //     path={image.imagePath}
+                    //     imageIsLoaded={incrLoadingValue}
+                    //     key={image.id}
+                    //     category={image.category}
+                    //     urlLink={image.urlLink}
+                    //     title={image.title}
+                    //     icon={image.icon}
+                    //     description={image.description}
+                    // />
                 );
             })}
 
