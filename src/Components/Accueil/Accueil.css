@@ -46,7 +46,7 @@ h1.main-title {
 .loading-title {
     font-family: 'edoregular', 'Cinzel', cursive;
     font-size: 160px;
-    color: #000;
+    color: #050505;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -91,7 +91,6 @@ h1.main-title {
     opacity: 0;
     transition: opacity 0.3s ease;
     text-shadow: rgba(255,255,255,0.3) 0px 0 10px;
-    /* z-index: 10; */
 }
 
 .menuImage__title--macros {
@@ -130,7 +129,6 @@ h1.main-title {
     right: 50%;
     transform: translateX(50%);
     width: 20%;
-    /* z-index: -5; */
     filter: invert(100%);
 }
 
@@ -233,7 +231,7 @@ h1.main-title {
     font-size: 45px;
 }
 .section__graphistes-title {
-    font-family: 'Fredericka the Great', cursive;
+     font-family: 'Overlock SC', cursive;
     font-weight: 500;
     font-size: 50px;
 }
@@ -242,6 +240,7 @@ h1.main-title {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2em 10em;
     font-size: 28px;
     line-height: 1.4em;
     font-weight: 500;
@@ -249,16 +248,19 @@ h1.main-title {
 }
 
 .section__container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
     width: 75vw;
-    height: 50vh;
     margin: auto;
     border: 8px solid #fff;
     background-color: #ccc;
-    transition: all 0.3s ease-in-out;
 }
 
 .section__icon {
-    position: fixed;
+    position: relative;
     filter: invert(50%);
 
     width: 90px;

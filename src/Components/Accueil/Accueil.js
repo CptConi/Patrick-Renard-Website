@@ -3,12 +3,18 @@ import { getLandingPagePics } from '../../Services/PictureService';
 import sectionText from '../../Services/content';
 import TitleLoading from './TitleLoading';
 import PerspectiveMiniature from './PerspectiveMiniature';
+import Section from './Section';
 
 import './Accueil.css';
 
 export default function Accueil() {
     const [content, setContent] = useState(sectionText);
     const [loadingValue, setLoadingValue] = useState(5);
+
+    // Set visibility of each section
+    const [sectionMacrosVisible, setSectionMacrosVisible] = useState(false);
+    const [sectionPortraitsVisible, setSectionPortraitsVisible] = useState(false);
+    const [sectionGraphistesVisible, setSectionGraphistesVisible] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -80,7 +86,28 @@ export default function Accueil() {
                         id={`menuImageRef__${image.category}`}
                         key={image.id}
                         onClick={() => {
-                            console.log('Clicking right now on ' + image.title);
+                            switch (image.category) {
+                                case 'macros':
+                                    setSectionMacrosVisible(true);
+                                    console.log(
+                                        'Setting ' + image.category + ' to visibility : true'
+                                    );
+                                    break;
+                                case 'portraits':
+                                    setSectionPortraitsVisible(true);
+                                    console.log(
+                                        'Setting ' + image.category + ' to visibility : true'
+                                    );
+                                    break;
+                                case 'graphistes':
+                                    setSectionGraphistesVisible(true);
+                                    console.log(
+                                        'Setting ' + image.category + ' to visibility : true'
+                                    );
+                                    break;
+                                default:
+                                    break;
+                            }
                         }}>
                         <PerspectiveMiniature
                             image={image.imagePath}
@@ -93,6 +120,24 @@ export default function Accueil() {
                         />
                     </div>
                 );
+            })}
+            {content.map((section, index) => {
+                if (
+                    (sectionMacrosVisible && index === 0) ||
+                    (sectionPortraitsVisible && index === 1) ||
+                    (sectionGraphistesVisible && index === 2) 
+                ) {
+                    return (
+                        <Section
+                            icon={section.icon}
+                            title={section.title}
+                            description={section.description}
+                            category={section.category}
+                        />
+                    );
+                } else {
+                    return('')
+                }
             })}
         </div>
     );

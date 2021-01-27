@@ -3,7 +3,7 @@ import './Accueil.css';
 
 export default function Section(props) {
     return (
-        <div className={`section__container`} onClick={props.handleClick}>
+        <div className={`section__container`}>
             <div className="section__icon">
                 <props.icon/>
             </div>
