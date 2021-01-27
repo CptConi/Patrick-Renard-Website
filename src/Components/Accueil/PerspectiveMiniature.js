@@ -25,7 +25,7 @@ export default function PerspectiveMiniature(props) {
             {props.image ? (
                 <div className={`tilted--${props.altText}`} onClick={props.handleClick}>
                     <div className={`menuImage__title--${props.altText}`}>
-                        {props.title}
+                        <h2>{props.title}</h2>
                         <props.icon className={`menuImage__icon`} />
                     </div>
                     <img

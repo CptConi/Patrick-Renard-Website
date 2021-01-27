@@ -83,7 +83,7 @@ export default function Accueil() {
                         <PerspectiveMiniature
                             image={image.imagePath}
                             urlLink={image.urlLink}
-                            altText={image.title}
+                            altText={image.category}
                             imageIsLoaded={incrLoadingValue}
                             title={image.title}
                             icon={image.icon}
