@@ -40,13 +40,13 @@ h1.main-title {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #050505;
+    background-color: #000;
 }
 
 .loading-title {
     font-family: 'edoregular', 'Cinzel', cursive;
     font-size: 160px;
-    color: #050505;
+    color: #000;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -214,12 +214,48 @@ h1.main-title {
 
 /* SECTION */
 
+.closeModalWrapper{
+    position: fixed;
+    top:0%;
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(0,0,0,0.7);
+    animation: fade-in 0.4s ease both;
+}
+
+@keyframes fade-in{
+    0%{opacity: 0%;}
+    100%{opacity: 100%;}
+}
+
+.section__container {
+    position: absolute;
+    border-radius: 15px;
+    margin-bottom: 50vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 75vw;
+    margin: auto;
+    border: 8px solid #fff;
+    background-color: #ccc;
+}
+
+.section__container-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .section-title {
     font-size: 80px;
     text-align: center;
-    font-family: Gabriola, -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    margin: 0;
 }
 
+/* SECTION TITLE PER CARD */
 .section__macros-title {
     font-family: 'Megrim', cursive;
     font-weight: 900;
@@ -238,25 +274,14 @@ h1.main-title {
 
 .section-text {
     display: flex;
+    text-align: justify;
     justify-content: center;
     align-items: center;
-    padding: 2em 10em;
-    font-size: 28px;
+    padding: 1em 10em;
+    font-size: 2em;
     line-height: 1.4em;
     font-weight: 500;
     font-family: Gabriola, -apple-system, BlinkMacSystemFont, 'Segoe UI';
-}
-
-.section__container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
-    width: 75vw;
-    margin: auto;
-    border: 8px solid #fff;
-    background-color: #ccc;
 }
 
 .section__icon {
@@ -265,4 +290,18 @@ h1.main-title {
 
     width: 90px;
     height: 90px;
+}
+
+.section__btn--accessGallery{
+    background-color: #000;
+    text-decoration: none;
+    text-align: center;
+    color: #eee;
+    width: 30%;
+    padding: 1em 3em;
+    border-radius: 12px;
+    margin-bottom: 2em;
+    font-size: 25px;
+    /* border: white 2px solid; */
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }

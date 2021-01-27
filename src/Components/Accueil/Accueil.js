@@ -76,11 +76,20 @@ export default function Accueil() {
         setLoadingValue(loadingValue + addValue);
     };
 
+    const closeModalSection = () => {
+        setSectionMacrosVisible(false);
+        setSectionPortraitsVisible(false);
+        setSectionGraphistesVisible(false);
+    }
+    
+
     return (
         <div className='Accueil__container'>
             <TitleLoading loadingValue={loadingValue} />
+            
             {content.map((image) => {
                 return (
+                    // Each Menu Card
                     <div
                         className={`menuImage__${image.category} slideDown__${image.category}`}
                         id={`menuImageRef__${image.category}`}
@@ -122,18 +131,22 @@ export default function Accueil() {
                 );
             })}
             {content.map((section, index) => {
+                // Each Section !ONLY IF Menu Card is clicked
                 if (
                     (sectionMacrosVisible && index === 0) ||
                     (sectionPortraitsVisible && index === 1) ||
                     (sectionGraphistesVisible && index === 2) 
                 ) {
                     return (
-                        <Section
-                            icon={section.icon}
-                            title={section.title}
-                            description={section.description}
-                            category={section.category}
-                        />
+                        <div className='closeModalWrapper' onClick={closeModalSection}>
+                            <Section
+                                icon={section.icon}
+                                title={section.title}
+                                description={section.description}
+                                category={section.category}
+                                urlLink={section.urlLink}
+                            />
+                        </div>
                     );
                 } else {
                     return('')
