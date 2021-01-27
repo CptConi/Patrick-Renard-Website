@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getLandingPagePics } from '../../Services/PictureService';
 import sectionText from '../../Services/content';
 import TitleLoading from './TitleLoading';
-import MenuImage from './MenuImage';
 import PerspectiveMiniature from './PerspectiveMiniature';
-
 
 import './Accueil.css';
 
@@ -79,7 +77,11 @@ export default function Accueil() {
                 return (
                     <div
                         className={`menuImage__${image.category} slideDown__${image.category}`}
-                        id={`menuImageRef__${image.category}`}>
+                        id={`menuImageRef__${image.category}`}
+                        key={image.id}
+                        onClick={() => {
+                            console.log('Clicking right now on ' + image.title);
+                        }}>
                         <PerspectiveMiniature
                             image={image.imagePath}
                             urlLink={image.urlLink}
@@ -90,21 +92,8 @@ export default function Accueil() {
                             description={image.description}
                         />
                     </div>
-
-                    // <MenuImage
-                    //     atlText={image.title}
-                    //     path={image.imagePath}
-                    //     imageIsLoaded={incrLoadingValue}
-                    //     key={image.id}
-                    //     category={image.category}
-                    //     urlLink={image.urlLink}
-                    //     title={image.title}
-                    //     icon={image.icon}
-                    //     description={image.description}
-                    // />
                 );
             })}
-
         </div>
     );
 }
