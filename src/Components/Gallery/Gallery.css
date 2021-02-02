@@ -1,3 +1,33 @@
+/* NAV */
+.nav__sectionIcon--wrapper{
+    position: fixed;
+    display: flex;
+    top: 20px;
+    flex-direction: row;
+    justify-items: start;
+    align-items: start;
+    z-index: 10;
+    width: 17%;
+    max-width: 275px;
+}
+
+.nav__sectionIcon{
+    height: 65px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+.nav__sectionIcon:hover{
+    transform: scale(1.2);
+}
+
+.nav__sectionIcon--active{
+    filter:invert(75%) drop-shadow(0 0 4px rgba(0,0,0,1));
+
+}
+.nav__sectionIcon--inactive{
+    filter:drop-shadow(0 0 4px rgba(200,200,200,0.2));
+}
+/* TITLE */
 .gallery__title {
     position: fixed;
     top: 20px;
@@ -13,7 +43,7 @@
 .gallery__title--portraits {
     font-family: 'Cinzel Decorative', cursive;
 }
-.gallery__title--graphistres {
+.gallery__title--graphistes {
     font-family: 'Overlock SC', cursive;
 }
 

@@ -1,7 +1,3 @@
-// import macrosIcon from '../Assets/icon-macros.svg';
-// import portraitsIcon from '../Assets/icon-portraits.svg';
-// import graphistesIcon from '../Assets/icon-graphistes.svg';
-
 let SVG = null;
 
 const sectionText = [

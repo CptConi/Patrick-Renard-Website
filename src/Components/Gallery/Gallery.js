@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import Slider from './Slider';
 import CurrentPicture from './CurrentPicture';
 import { getGalleryFromCategory } from '../../Services/PictureService';
+import sectionText from '../../Services/content';
 
 import './Gallery.css';
 
@@ -59,10 +62,24 @@ export default function Gallery() {
         fetchData();
     }, [currentCategory]);
 
+    const iconIsActive = (category) => {
+        return (category === currentCategory ? ('nav__sectionIcon--active') : ('nav__sectionIcon--inactive'))
+    }
+    
+
     return (
         <div className='gallery__container'>
-            <div className="nav__sectionIcons">
-                
+            <div className="nav__sectionIcon--wrapper">
+                {sectionText.map((section) => {
+                    return (
+                        <Link to={section.urlLink} >
+                        <section.icon
+                        key={section.id}
+                        className={`nav__sectionIcon ${iconIsActive(section.category)}`}
+                        />
+                        </Link>
+                    );
+                })}
             </div>
             {currentPicture && (
                 <div>
