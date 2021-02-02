@@ -6,12 +6,12 @@ export default function SlideGallery(props) {
 
     return (
         <div className='title-loading__wrapper'>
-            <div className='loading-title' id='titleRef'>
+            <h1 className='loading-title' id='titleRef'>
                 Patrick d'Andernos
                 <div className='overlay' style={{ width: `${props.loadingValue}%` }}>
                     Patrick d'Andernos
                 </div>
-            </div>
+            </h1>
         </div>
     );
 }

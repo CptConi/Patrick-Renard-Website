@@ -10,16 +10,6 @@
     font-style: normal;
 }
 
-h1.main-title {
-    margin: auto;
-    padding: 40px 30px 20px;
-    text-align: center;
-    font-family: 'edoregular', 'Cinzel', cursive;
-    font-size: 140px;
-    font-weight: normal;
-    color: #aaa;
-}
-
 /* PERSPECTIVE IMAGE */
 
 .section__tilt {
@@ -46,6 +36,9 @@ h1.main-title {
 .loading-title {
     font-family: 'edoregular', 'Cinzel', cursive;
     font-size: 160px;
+    margin: 0;
+    padding: 0;
+    font-weight: lighter;
     color: #000;
     position: fixed;
     top: 50%;
@@ -236,7 +229,7 @@ h1.main-title {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
-    width: 75vw;
+    width: 65vw;
     margin: auto;
     border: 8px solid #fff;
     background-color: #ccc;
@@ -259,17 +252,17 @@ h1.main-title {
 .section__macros-title {
     font-family: 'Megrim', cursive;
     font-weight: 900;
-    font-size: 55px;
+    font-size: 60px;
 }
 .section__portraits-title {
     font-family: 'Cinzel Decorative', cursive;
     font-weight: 500;
-    font-size: 45px;
+    font-size: 55px;
 }
 .section__graphistes-title {
      font-family: 'Overlock SC', cursive;
     font-weight: 500;
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .section-text {
@@ -277,7 +270,7 @@ h1.main-title {
     text-align: justify;
     justify-content: center;
     align-items: center;
-    padding: 1em 10em;
+    padding: 1em 7em;
     font-size: 2em;
     line-height: 1.4em;
     font-weight: 500;
@@ -286,7 +279,7 @@ h1.main-title {
 
 .section__icon {
     position: relative;
-    filter: invert(50%);
+    filter: invert(75%);
 
     width: 90px;
     height: 90px;

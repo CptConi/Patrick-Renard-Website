@@ -1,19 +1,36 @@
-.gallery__title--category {
-    position: absolute;
+.gallery__title {
+    position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 45px;
+    text-shadow: 0 0 10px rgba(200, 200, 200, 0.3);
+}
+
+.gallery__title--macros {
+    font-family: 'Megrim', cursive;
+}
+.gallery__title--portraits {
+    font-family: 'Cinzel Decorative', cursive;
+}
+.gallery__title--graphistres {
+    font-family: 'Overlock SC', cursive;
 }
 
 .gradient-wrapper {
+    top: 0;
+    bottom: 0;
+    padding-top: 60px;
+    /* v Calcul de la taille en fonction du padding top v */
+    height: calc(100vh - 60px);
+    overflow-y: hidden;
     transition: background-color 1s ease;
 }
 
 #currentPicture {
     display: flex;
     padding: 50px 0 50px;
-    width: 1440px;
+    width: 90%;
     height: 900px;
     margin: auto;
     object-fit: contain;
@@ -21,9 +38,10 @@
 }
 
 .gallery__btn {
-    position: absolute;
-    width: 40px;
-    height: 100%;
+    position: fixed;
+    width: 70px;
+    height: 50%;
+    transform: translateY(50%);
     border: none;
     outline: none;
     opacity: 0.2;
@@ -52,7 +70,7 @@
     left: 50%;
     transform: translateX(-50%);
     cursor: grab;
-    width: 85%;
+    width: 85vh;
     mask-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0) 0%,
@@ -60,7 +78,7 @@
         rgba(0, 0, 0, 1) 85%,
         rgba(0, 0, 0, 0)
     );
-    opacity: 0;
+    opacity: 0.02;
     transition: all 0.4s 0.5s ease;
 }
 
@@ -68,7 +86,7 @@
     cursor: grabbing;
 }
 
-.slider__container:hover{
+.slider__container:hover {
     opacity: 0.9;
     transition: all 0.4s ease;
 }

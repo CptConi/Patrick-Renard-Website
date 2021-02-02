@@ -61,9 +61,12 @@ export default function Gallery() {
 
     return (
         <div className='gallery__container'>
+            <div className="nav__sectionIcons">
+                
+            </div>
             {currentPicture && (
                 <div>
-                    <h1 className="gallery__title--category">
+                    <h1 className={`gallery__title gallery__title--${currentCategory}`}>
                         {galleryTitle}
                     </h1>
 
