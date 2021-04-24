@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { getLandingPagePics } from '../../Services/PictureService';
+import './Accueil.css';
+
+import React, { useEffect, useState } from 'react';
+
 import sectionText from '../../Services/content';
-import TitleLoading from './TitleLoading';
+import { getLandingPagePics } from '../../Services/PictureService';
+import useWindowDimensions from '../useWindowDimensions';
 import PerspectiveMiniature from './PerspectiveMiniature';
 import Section from './Section';
-
-import './Accueil.css';
+import TitleLoading from './TitleLoading';
 
 export default function Accueil() {
     const [content, setContent] = useState(sectionText);
     const [loadingValue, setLoadingValue] = useState(5);
+    const { height, width } = useWindowDimensions();
 
     // Set visibility of each section
     const [sectionMacrosVisible, setSectionMacrosVisible] = useState(false);
@@ -32,25 +35,28 @@ export default function Accueil() {
             setContent(responseData);
         };
         fetchData();
-        // Handling Parallax
-        const wrapper = document.querySelector('body');
-        const title = document.querySelector('#titleRef');
-        const imgMacros = document.querySelector('#menuImageRef__macros');
-        const imgPortraits = document.querySelector('#menuImageRef__portraits');
-        const imgGraphistes = document.querySelector('#menuImageRef__graphistes');
-        wrapper.addEventListener('mousemove', (e) => {
-            // TITLE
-            parrallaxElementMove(title, e, { posX: 50, posY: 50 }, 200);
-            // // MACROS
-            parrallaxElementMove(imgMacros, e, { posX: 4, posY: 8 }, 1000);
-            // // PORTRAITS
-            parrallaxElementMove(imgPortraits, e, { posX: 60, posY: 20 }, 1000);
-            // // GRAPHISTES
-            parrallaxElementMove(imgGraphistes, e, { posX: 35, posY: 65 }, 1000);
-        });
-        return () => {
-            wrapper.removeEventListener('mousemove', () => {});
-        };
+        if (width > 1015) {
+            console.log(width);
+            // Handling Parallax
+            const wrapper = document.querySelector('body');
+            const title = document.querySelector('#titleRef');
+            const imgMacros = document.querySelector('#menuImageRef__macros');
+            const imgPortraits = document.querySelector('#menuImageRef__portraits');
+            const imgGraphistes = document.querySelector('#menuImageRef__graphistes');
+            wrapper.addEventListener('mousemove', (e) => {
+                // TITLE
+                parrallaxElementMove(title, e, { posX: 50, posY: 50 }, 200);
+                // // MACROS
+                parrallaxElementMove(imgMacros, e, { posX: 4, posY: 6 }, 1000);
+                // // PORTRAITS
+                parrallaxElementMove(imgPortraits, e, { posX: 60, posY: 20 }, 1000);
+                // // GRAPHISTES
+                parrallaxElementMove(imgGraphistes, e, { posX: 35, posY: 65 }, 1000);
+            });
+            return () => {
+                wrapper.removeEventListener('mousemove', () => {});
+            };
+        }
         // eslint-disable-next-line
     }, []);
 
@@ -80,13 +86,12 @@ export default function Accueil() {
         setSectionMacrosVisible(false);
         setSectionPortraitsVisible(false);
         setSectionGraphistesVisible(false);
-    }
-    
+    };
 
     return (
         <div className='Accueil__container'>
             <TitleLoading loadingValue={loadingValue} />
-            
+
             {content.map((image) => {
                 return (
                     // Each Menu Card
@@ -135,7 +140,7 @@ export default function Accueil() {
                 if (
                     (sectionMacrosVisible && index === 0) ||
                     (sectionPortraitsVisible && index === 1) ||
-                    (sectionGraphistesVisible && index === 2) 
+                    (sectionGraphistesVisible && index === 2)
                 ) {
                     return (
                         <div className='closeModalWrapper' onClick={closeModalSection}>
@@ -149,7 +154,7 @@ export default function Accueil() {
                         </div>
                     );
                 } else {
-                    return('')
+                    return '';
                 }
             })}
         </div>

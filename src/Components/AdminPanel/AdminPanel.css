@@ -1,3 +1,7 @@
+.ScrollZone {
+    overflow-y: auto;
+}
+
 .adminpanel__container {
     margin: 80px auto 300px;
     width: 80%;

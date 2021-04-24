@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import PostPicture from './PostPicture';
-import ManagePictures from './ManagePictures';
 import './AdminPanel.css';
+
+import React, { useState } from 'react';
+
+import ManagePictures from './ManagePictures';
+import PostPicture from './PostPicture';
 
 export default function AdminPanel() {
     // STATE
@@ -25,26 +27,28 @@ export default function AdminPanel() {
     };
 
     return (
-        <div className='adminpanel__container'>
-            <div className='adminpanel__bloctab'>
-                <div
-                    className={isVisible.post ? 'adminpanel__tab' : ' adminpanel__tab inactive'}
-                    onClick={setPostVisible}>
-                    Ajout de photos
-                </div>
-                <div
-                    className={isVisible.get ? 'adminpanel__tab' : ' adminpanel__tab inactive'}
-                    onClick={setGetVisible}>
-                    Gestion des photos
-                </div>
-            </div>
-            <div className='adminpanel__display'>
-                {isVisible.post && <PostPicture />}
-                {isVisible.get && (
-                    <div>
-                        <ManagePictures />
+        <div className='ScrollZone'>
+            <div className='adminpanel__container'>
+                <div className='adminpanel__bloctab'>
+                    <div
+                        className={isVisible.post ? 'adminpanel__tab' : ' adminpanel__tab inactive'}
+                        onClick={setPostVisible}>
+                        Ajout de photos
                     </div>
-                )}
+                    <div
+                        className={isVisible.get ? 'adminpanel__tab' : ' adminpanel__tab inactive'}
+                        onClick={setGetVisible}>
+                        Gestion des photos
+                    </div>
+                </div>
+                <div className='adminpanel__display'>
+                    {isVisible.post && <PostPicture />}
+                    {isVisible.get && (
+                        <div>
+                            <ManagePictures />
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
