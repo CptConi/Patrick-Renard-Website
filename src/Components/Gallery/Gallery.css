@@ -5,7 +5,7 @@
     top: 20px;
     flex-direction: row;
     justify-items: start;
-    align-items: start;
+    align-items: flex-start;
     z-index: 10;
     width: 17%;
     max-width: 275px;
@@ -27,6 +27,21 @@
 .nav__sectionIcon--inactive{
     filter:drop-shadow(0 0 4px rgba(200,200,200,0.2));
 }
+
+.nav__close-btn{
+    position: absolute;
+    height: 65px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    right: 10px;
+    top: 10px;
+}
+
+.nav__close-btn:hover{
+    transform: scale(1.1);
+    filter: invert(50);
+}
+
 /* TITLE */
 .gallery__title {
     position: fixed;
@@ -65,6 +80,34 @@
     margin: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.7));
+}
+
+.currentPicture__wrapper{
+    position: relative;
+}
+
+.HD-link{
+    position: absolute;
+    top: 0px;
+    right: 130px;
+    text-decoration: none;
+    color: lightgray;
+    font-family: system-ui;
+    font-weight: bolder;
+    font-size: 25px;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    padding: 0px 10px;
+    background:slategray;
+    opacity: 0.2;
+    transform: rotate(10deg);
+    transition: all 0.3s ease
+}
+
+.HD-link:hover{
+cursor: pointer;
+transform: rotate(0deg);
+opacity: 1;
 }
 
 .gallery__btn {

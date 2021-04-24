@@ -1,6 +1,7 @@
 import React from 'react';
 import leftArrow from '../../Assets/carousel-arrow-left.png'
 import rightArrow from '../../Assets/carousel-arrow-right.png'
+
 import { usePalette } from 'color-thief-react';
 
 export default function CurrentPicture(props) {
@@ -12,12 +13,21 @@ export default function CurrentPicture(props) {
     return (
         <div>
             {loading ? (
-                <div className='gradient-wrapper' style={{ background: '#fff' }}>
+                <div className='gradient-wrapper' style={{ background: '#555' }}>
                     <div id='currentPicture'></div>
                 </div>
             ) : (
                 <div className='gradient-wrapper' style={{ background: data[0] }}>
-                    <img src={props.path} alt={props.description} id='currentPicture' />
+                    <div className="currentPicture__wrapper">
+                        <img src={props.path} alt={props.description} id='currentPicture' />
+                        <a
+                            className='HD-link'
+                            href={props.pathHD}
+                            target='_blank'
+                            rel='noopener noreferrer'>
+                            HD
+                        </a>
+                    </div>
                     <button
                         onClick={props.handlePrevClick}
                         className='gallery__btn gallery__btn--prev'>

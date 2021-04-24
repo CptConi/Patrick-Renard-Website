@@ -6,6 +6,7 @@ import CurrentPicture from './CurrentPicture';
 import { getGalleryFromCategory } from '../../Services/PictureService';
 import sectionText from '../../Services/content';
 
+import cross from '../../Assets/cross.svg';
 import './Gallery.css';
 
 export default function Gallery() {
@@ -81,6 +82,7 @@ export default function Gallery() {
                     );
                 })}
             </div>
+            <Link to="/"><img className="nav__close-btn" src={cross} alt="Cross icon"/></Link>
             {currentPicture && (
                 <div>
                     <h1 className={`gallery__title gallery__title--${currentCategory}`}>
@@ -89,6 +91,7 @@ export default function Gallery() {
 
                     <CurrentPicture
                         path={currentPicture.halfSizePath}
+                        pathHD={currentPicture.fullSizePath}
                         description={currentPicture.description}
                         handlePrevClick={previousPicture}
                         handleNextClick={nextPicture}
