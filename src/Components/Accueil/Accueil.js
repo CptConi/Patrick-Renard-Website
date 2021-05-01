@@ -1,7 +1,9 @@
 import './Accueil.css';
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
+import infos from '../../Assets/infos.svg';
 import sectionText from '../../Services/content';
 import { getLandingPagePics } from '../../Services/PictureService';
 import useWindowDimensions from '../useWindowDimensions';
@@ -91,7 +93,9 @@ export default function Accueil() {
     return (
         <div className='Accueil__container'>
             <TitleLoading loadingValue={loadingValue} />
-
+            <Link to='/apropos'>
+                <img src={infos} alt='A propos de lui' className='infos-icon' />
+            </Link>
             {content.map((image) => {
                 return (
                     // Each Menu Card

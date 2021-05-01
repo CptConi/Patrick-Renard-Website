@@ -16,6 +16,7 @@ const app = express();
 const filesRoutes = require('./Routes/filesRoutes');
 
 const uri = process.env.MONGO_URI;
+console.log(uri);
 
 mongoose
     .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
