@@ -97,18 +97,6 @@ export default function Gallery() {
                     </h1>
 
                     <CurrentPicture
-                        onKeyDown={(e) => {
-                            switch (e.key) {
-                                case 'ArrowLeft':
-                                    previousPicture();
-                                    break;
-                                case 'ArrowRight':
-                                    nextPicture();
-                                    break;
-                                default:
-                                    return;
-                            }
-                        }}
                         path={currentPicture.halfSizePath}
                         pathHD={currentPicture.fullSizePath}
                         description={currentPicture.description}

@@ -37,8 +37,7 @@ export default function Accueil() {
             setContent(responseData);
         };
         fetchData();
-        if (width > 1015) {
-            console.log(width);
+        if (width > 1200) {
             // Handling Parallax
             const wrapper = document.querySelector('body');
             const title = document.querySelector('#titleRef');
@@ -51,7 +50,7 @@ export default function Accueil() {
                 // // MACROS
                 parrallaxElementMove(imgMacros, e, { posX: 4, posY: 6 }, 1000);
                 // // PORTRAITS
-                parrallaxElementMove(imgPortraits, e, { posX: 60, posY: 20 }, 1000);
+                parrallaxElementMove(imgPortraits, e, { posX: 70, posY: 20 }, 1000);
                 // // GRAPHISTES
                 parrallaxElementMove(imgGraphistes, e, { posX: 35, posY: 65 }, 1000);
             });
@@ -133,6 +132,7 @@ export default function Accueil() {
                             altText={image.category}
                             imageIsLoaded={incrLoadingValue}
                             title={image.title}
+                            key={image.title}
                             icon={image.icon}
                             description={image.description}
                         />
@@ -151,6 +151,7 @@ export default function Accueil() {
                             <Section
                                 icon={section.icon}
                                 title={section.title}
+                                key={section.title}
                                 description={section.description}
                                 category={section.category}
                                 urlLink={section.urlLink}

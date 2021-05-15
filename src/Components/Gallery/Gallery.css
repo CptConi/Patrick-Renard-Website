@@ -3,16 +3,16 @@
     position: fixed;
     display: flex;
     top: 20px;
-    flex-direction: row;
-    justify-items: start;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: flex-start;
     z-index: 10;
-    width: 17%;
-    max-width: 275px;
+    width: 80px;
+    height: 25%;
 }
 
 .nav__sectionIcon {
-    height: 65px;
+    height: 45px;
     cursor: pointer;
     transition: all 0.4s ease;
 }
@@ -44,6 +44,7 @@
 /* TITLE */
 .gallery__title {
     position: fixed;
+    text-align: center;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
@@ -64,30 +65,29 @@
 .gradient-wrapper {
     top: 0;
     bottom: 0;
-    padding-top: 60px;
+    /* padding-top: 60px; */
     /* v Calcul de la taille en fonction du padding top v */
-    height: calc(100vh - 60px);
+    height: 100vh;
     overflow-y: hidden;
     transition: background-color 1s ease;
 }
 
 #currentPicture {
-    display: flex;
-    padding: 50px 0 50px;
+    display: block;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 87vh;
     width: 90%;
-    height: 900px;
     margin: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.7));
 }
 
-.currentPicture__wrapper {
-    position: relative;
-}
-
 .HD-link {
     position: absolute;
-    top: 0px;
+    top: 25px;
     right: 130px;
     text-decoration: none;
     color: lightgray;

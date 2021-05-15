@@ -64,7 +64,7 @@
 /* MENUIMAGE */
 
 .menuImage {
-    width: 550px;
+    width: 450px;
     position: relative;
     border: 7px white solid;
     transition: all 0.3s ease;
@@ -94,17 +94,17 @@
 .menuImage__title--macros {
     font-family: 'Megrim', cursive;
     font-weight: 900;
-    font-size: 55px;
+    font-size: 45px;
 }
 .menuImage__title--portraits {
     font-family: 'Cinzel Decorative', cursive;
     font-weight: 500;
-    font-size: 45px;
+    font-size: 40px;
 }
 .menuImage__title--graphistes {
     font-family: 'Overlock SC', cursive;
     font-weight: lighter;
-    font-size: 45px;
+    font-size: 40px;
 }
 
 .tilted--macros:hover .menuImage__title--macros {
@@ -126,7 +126,7 @@
     top: -50%;
     right: 50%;
     transform: translateX(50%);
-    width: 20%;
+    width: 15%;
     filter: invert(100%);
 }
 
@@ -152,7 +152,7 @@
 .menuImage__portraits {
     position: absolute;
     top: 20%;
-    left: 60%;
+    left: 70%;
 }
 .menuImage__graphistes {
     position: absolute;
@@ -320,11 +320,11 @@
 
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 1660px) {
+@media screen and (max-width: 1600px) {
     /* MENUIMAGE */
 
     .menuImage {
-        width: 450px;
+        width: 400px;
     }
     .menuImage__title--macros {
         font-size: 45px;
@@ -355,7 +355,7 @@
     }
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1560px) {
     .menuImage {
         width: 350px;
     }
@@ -403,7 +403,7 @@
     }
 }
 
-@media screen and (max-width: 1015px) {
+@media screen and (max-width: 1350px) {
     .menuImage {
         width: 300px;
     }
@@ -452,7 +452,7 @@
 }
 
 /* A PARTIR DE LA PLUS DE PARRALLAX CAR CONSIDERE TOUCH SCREEN ONLY */
-@media screen and (max-width: 1015px) {
+@media screen and (max-width: 1200px) {
     /* POSITIONS */
     .loading-title {
         top: 15%;
