@@ -1,13 +1,11 @@
-import React from 'react';
-import Accueil from './Components/Accueil/Accueil';
-import About from './Components/About/About';
-import Gallery from './Components/Gallery/Gallery';
-import AdminPanel from './Components/AdminPanel/AdminPanel';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MissingPage from './Components/MissingPage/MissingPage';
-
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './App.css';
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
+import AdminPanel from './Components/AdminPanel/AdminPanel';
+import MissingPage from './Components/MissingPage/MissingPage';
 
 function App() {
     return (
@@ -18,8 +16,8 @@ function App() {
                         <TransitionGroup>
                             <CSSTransition key={location.key} timeout={500} classNames='fade'>
                                 <Switch location={location}>
-                                    <Route exact path='/accueil' component={Accueil} />
-                                    <Route exact path='/' component={Accueil} />
+                                    <Route exact path='/' component={AdminPanel} />
+                                    {/* <Route exact path='/' component={Accueil} />
 
                                     <Route exact path='/apropos' component={About} />
 
@@ -31,7 +29,7 @@ function App() {
                                         exact
                                         path='/au-cafe-des-graphistes'
                                         component={Gallery}
-                                    />
+                                    /> */}
                                     <Route component={MissingPage} />
                                     <footer className='footer'></footer>
                                 </Switch>
