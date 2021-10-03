@@ -5,7 +5,7 @@ const sectionText = [
         id: 1,
         category: 'macros',
         title: 'Monde Macros',
-        description: `La plupart des photos macro sont réalisées avec la méthode du focus stacking (en français, empilement de mises au point). Plusieurs photos sont prises en rapprochant à chaque fois l'appareil qui est monté sur un rail micrométrique décalant à chaque fois le plan de mise au point. Les images réalisées, sont compilées par Helicon Focus qui va extraire les parties nettes de chaque photo pour constituer l’image finale avec une  profondeur de champ.`,
+        description: `La plupart des photos macro sont réalisées avec la méthode du focus stacking (en français, empilement de mises au point). Plusieurs photos sont prises en rapprochant à chaque fois l'appareil qui est monté sur un rail micrométrique, décalant à chaque fois le plan de mise au point. Les images réalisées, sont compilées par Helicon Focus qui va extraire les parties nettes de chaque photo pour constituer l’image finale avec une grande profondeur de champ.`,
         imagePath: '',
         urlLink: '/mondes-macros',
         icon: (SVG = ({
@@ -35,7 +35,7 @@ const sectionText = [
         id: 2,
         category: 'portraits',
         title: 'Studio Portraits',
-        description: `Pendant le shooting, les image sont envoyées directement par wifi sur un écran 27 " . Le modèle peut juger du rendu, des éclairages, de sa pose, de son expression.`,
+        description: `"Photographier une personne, c'est affirmer que l'on s'intéresse à elle". Bernard Arcand`,
         image: '',
         urlLink: '/studio-portrait',
         icon: (SVG = ({
@@ -65,8 +65,7 @@ const sectionText = [
         id: 3,
         category: 'graphistes',
         title: 'Au Café des Graphistes',
-        description:
-            'La retouche et les manipulations des images sont réalisées avec Photoshop CC via une tablette numérique Wacom.',
+        description: 'Retouche et manipulations',
         image: '',
         urlLink: '/au-cafe-des-graphistes',
         icon: (SVG = ({
