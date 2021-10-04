@@ -2,13 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Overlock+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
-
-@font-face {
-    font-family: 'edoregular';
-    src: url('../../Assets/web\ fonts/edo_regular_macroman/edo-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fuggles&display=swap');
 
 .Accueil__container {
     overflow: hidden;
@@ -39,23 +33,26 @@
 }
 
 .loading-title {
-    font-family: 'edoregular', 'Cinzel', cursive;
-    font-size: 150px;
+    font-family: 'Fuggles', 'Cinzel', cursive;
+    font-size: 160px;
     margin: 0;
     padding: 0;
-    font-weight: lighter;
+    font-weight: 400;
     color: #000;
+    max-height: 216px;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-60%, -50%);
 }
 
 .loading-title .overlay {
+    margin-right: 5rem;
     position: absolute;
     left: 0;
     top: 0;
     width: 60%;
+    white-space: nowrap;
     overflow: hidden;
     color: #eee;
     transition: all 0.5s 0.5s ease;
@@ -95,16 +92,19 @@
     font-family: 'Megrim', cursive;
     font-weight: 900;
     font-size: 45px;
+    z-index: 50;
 }
 .menuImage__title--portraits {
     font-family: 'Cinzel Decorative', cursive;
     font-weight: 500;
     font-size: 40px;
+    z-index: 50;
 }
 .menuImage__title--graphistes {
     font-family: 'Overlock SC', cursive;
     font-weight: lighter;
     font-size: 40px;
+    z-index: 50;
 }
 
 .tilted--macros:hover .menuImage__title--macros {
@@ -353,11 +353,14 @@
         font-size: 2em;
         line-height: 1.4em;
     }
+    .loading-title {
+        font-size: 135px;
+    }
 }
 
 @media screen and (max-width: 1560px) {
     .menuImage {
-        width: 350px;
+        width: 380px;
     }
     .menuImage__title--macros {
         font-size: 35px;
@@ -373,7 +376,7 @@
         width: 9%;
     }
     .loading-title {
-        font-size: 135px;
+        font-size: 120px;
     }
 
     .section__macros-title {
@@ -405,7 +408,7 @@
 
 @media screen and (max-width: 1350px) {
     .menuImage {
-        width: 300px;
+        width: 340px;
     }
     .menuImage__title--macros {
         font-size: 30px;
@@ -421,7 +424,7 @@
         width: 9%;
     }
     .loading-title {
-        font-size: 120px;
+        font-size: 110px;
     }
 
     .section__macros-title {
@@ -455,7 +458,10 @@
 @media screen and (max-width: 1200px) {
     /* POSITIONS */
     .loading-title {
+        font-size: 90px;
         top: 15%;
+        transform: translate(-50%, -50%);
+        margin-right: 0;
     }
 
     .menuImage__macros {
@@ -498,14 +504,22 @@
     }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 900px) {
     /* POSITIONS */
     .loading-title {
-        font-size: 100px;
+        font-size: 80px;
+        overflow: auto;
+    }
+}
+@media screen and (max-width: 735px) {
+    /* POSITIONS */
+    .loading-title {
+        font-size: 65px;
+        overflow: auto;
     }
 
     .menuImage {
-        width: 250px;
+        width: 290px;
         border: 5px white solid;
     }
     .menuImage__title--macros {
@@ -532,15 +546,15 @@
     }
 }
 
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 660px) {
     /* POSITIONS */
     .loading-title {
-        font-size: 90px;
+        font-size: 45px;
         top: 12%;
     }
 
     .menuImage {
-        width: 250px;
+        width: 280px;
         border: 5px white solid;
     }
     .menuImage__title--macros {
@@ -570,12 +584,12 @@
 @media screen and (max-width: 510px) {
     /* POSITIONS */
     .loading-title {
-        font-size: 70px;
+        font-size: 40px;
         top: 12%;
     }
 
     .menuImage {
-        width: 230px;
+        width: 270px;
         border: 4px white solid;
     }
     .menuImage__title--macros {

@@ -1,13 +1,11 @@
+import './Accueil.css';
+
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
-
-import './Accueil.css';
 
 import pictureSkeleton from '../../Assets/landing-page-picture-skeleton.jpg';
 
 export default function PerspectiveMiniature(props) {
-
-
     return (
         <Tilt
             className='section__tilt'
