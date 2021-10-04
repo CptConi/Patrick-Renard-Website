@@ -1,13 +1,13 @@
-import React from 'react';
-import Accueil from './Components/Accueil/Accueil';
-import About from './Components/About/About';
-import Gallery from './Components/Gallery/Gallery';
-import AdminPanel from './Components/AdminPanel/AdminPanel';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MissingPage from './Components/MissingPage/MissingPage';
-
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './App.css';
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
+import About from './Components/About/About';
+import Accueil from './Components/Accueil/Accueil';
+import Gallery from './Components/Gallery/Gallery';
+import MissingPage from './Components/MissingPage/MissingPage';
 
 function App() {
     return (
@@ -23,7 +23,7 @@ function App() {
 
                                     <Route exact path='/apropos' component={About} />
 
-                                    <Route exact path='/admin-panel' component={AdminPanel} />
+                                    {/* <Route exact path='/admin-panel' component={AdminPanel} /> */}
 
                                     <Route exact path='/mondes-macros' component={Gallery} />
                                     <Route exact path='/studio-portrait' component={Gallery} />
