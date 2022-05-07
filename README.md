@@ -19,3 +19,6 @@ Vous pouvez utiliser le script `node server.js` pour lancer le serveur back-end
 <p align="center">
 <img  src="./src/Assets/section-portraits.jpg" width=600>
 </p>
+
+Infos pour le build:
+Il est indispensable de build le projet avant de le deploy.

@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
-import React from 'react';
 import './Accueil.css';
+
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Section(props) {
     return (
@@ -13,7 +14,9 @@ export default function Section(props) {
                 <p className={`section__${props.category}-text section-text`}>
                     {props.description}
                 </p>
-                <Link to={props.urlLink} className='section__btn--accessGallery'>Accéder à la Gallerie</Link>
+                <Link to={props.urlLink} className='section__btn--accessGallery'>
+                    Accéder à la Galerie
+                </Link>
             </div>
         </div>
     );
